@@ -14,6 +14,10 @@ export default function CreateBlogPage() {
     content: "",
     image: "",
     tags: "",
+    authorName: "Admin",
+    authorImage: "",
+    authorRole: "Administrator",
+    excerpt: "",
   });
 
   const [mediaLibraryOpen, setMediaLibraryOpen] = useState(false);
@@ -133,6 +137,24 @@ export default function CreateBlogPage() {
                     placeholder="e.g., school, education, news"
                   />
                 </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="excerpt"
+                  className="block text-sm font-medium text-body-color dark:text-white/70 mb-2"
+                >
+                  Excerpt
+                </label>
+                <textarea
+                  id="excerpt"
+                  name="excerpt"
+                  value={formData.excerpt}
+                  onChange={handleChange}
+                  rows={3}
+                  className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                  placeholder="Brief description of the blog post..."
+                />
               </div>
 
               <div>

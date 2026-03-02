@@ -93,12 +93,13 @@ const Header = () => {
                 } `}
               >
                 <Image
-                  src="/images/logo/pkbm-intan.png"
+                  src="/images/logo/PKBM-KT.png"
                   alt="logo"
-                  width={140}
-                  height={30}
-                  className="w-full dark:hidden"
+                  width={80}
+                  height={15}
+                  className="w-30 h-auto dark:hidden"
                 />
+
                 <Image
                   src="/images/logo/logo.svg"
                   alt="logo"
@@ -140,13 +141,14 @@ const Header = () => {
                       : "invisible top-[120%] opacity-50"
                   }`}
                 >
-                  <ul className="block lg:flex lg:space-x-12">
+                  <ul className="block lg:flex lg:space-x-8 -ml-16">
+
 
                     {/* Tentang Kami */}
                     <li className="group relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                       <p
                         onClick={() => handleSubmenu(1)}
-                        className="relative z-10 text-dark flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 
+                        className="relative z-10 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 
                         hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                       >
                         <span>Tentang Kami</span>
@@ -227,7 +229,7 @@ const Header = () => {
                     <li className="group relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                       <p
                         onClick={() => handleSubmenu(2)}
-                        className="relative z-20 text-dark flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
+                        className="relative z-20 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                       >
                         <span>Program</span>
                         <span className="ml-2">
@@ -306,7 +308,7 @@ const Header = () => {
                     <li className="group relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                       <p
                         onClick={() => handleSubmenu(3)}
-                        className="relative z-20 text-dark flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
+                        className="relative z-20 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                       >
                         <span>Informasi</span>
                         <span className="ml-2">
@@ -378,7 +380,7 @@ const Header = () => {
                     <li className="group relative">
                       <Link
                         href="/contact"
-                        className={`relative z-20 flex pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 ${
+                        className={`relative z-20 flex pt-2 pb-1 text-mitra text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 ${
                           usePathName === "/contact"
                             ? "text-primary after:opacity-100 dark:text-white"
                             : "text-dark hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"

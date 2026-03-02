@@ -22,7 +22,7 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       {/* <Brands /> */}
-      <AboutSectionOne />
+      {/* <AboutSectionOne /> */}
       <Testimonials />
       {/* <Pricing /> */}
       <Blog />
