@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface Blog {
   id: number;
@@ -24,6 +25,8 @@ export default function AdminBlogsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const router = useRouter();
+
   useEffect(() => {
     fetchBlogs();
   }, []);
@@ -32,9 +35,7 @@ export default function AdminBlogsPage() {
     try {
       setLoading(true);
       const response = await fetch("/api/blog");
-      if (!response.ok) {
-        throw new Error("Failed to fetch blogs");
-      }
+      if (!response.ok) throw new Error("Failed to fetch blogs");
       const data = await response.json();
       setBlogs(data);
     } catch (err) {
@@ -45,18 +46,14 @@ export default function AdminBlogsPage() {
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm("Are you sure you want to delete this blog post?")) {
-      return;
-    }
+    if (!confirm("Are you sure you want to delete this blog post?")) return;
 
     try {
       const response = await fetch(`/api/blog/${id}`, {
         method: "DELETE",
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to delete blog");
-      }
+      if (!response.ok) throw new Error("Failed to delete blog");
 
       setBlogs(blogs.filter((blog) => blog.id !== id));
     } catch (err) {
@@ -64,155 +61,152 @@ export default function AdminBlogsPage() {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-light dark:bg-bg-color-dark py-16">
-        <div className="container">
-          <div className="flex justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gray-light dark:bg-bg-color-dark py-16">
-        <div className="container">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-black dark:text-white mb-4">
-              Error
-            </h2>
-            <p className="text-body-color dark:text-white/70">{error}</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/admin/logout", { method: "POST" });
+      router.push("/admin/login");
+      router.refresh();
+    } catch (error) {
+      console.error("Logout failed", error);
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-gray-light dark:bg-bg-color-dark py-16">
-      <div className="container">
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-3xl font-bold text-black dark:text-white mb-2">
-              Blog Management
-            </h1>
-            <p className="text-body-color dark:text-white/70">
-              Manage your blog posts
-            </p>
-          </div>
-          <Link
-            href="/admin/blogs/create"
-            className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-bold transition-colors duration-300"
-          >
-            Create New Blog
-          </Link>
+    <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900">
+      {/* Sidebar */}
+      <aside className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 hidden md:flex md:flex-col">
+        <div className="h-16 flex items-center px-6 border-b border-gray-200 dark:border-gray-700">
+          <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
+            PKBM Intan
+          </h1>
         </div>
 
-        <div className="bg-white dark:bg-dark rounded-lg shadow-one dark:shadow-gray-dark overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-gray-50 dark:bg-dark-2">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-body-color uppercase tracking-wider">
-                    Title
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-body-color uppercase tracking-wider">
-                    Author
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-body-color uppercase tracking-wider">
-                    Date
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-body-color uppercase tracking-wider">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-dark-2">
-                {blogs.map((blog) => (
-                  <tr key={blog.id} className="hover:bg-gray-50 dark:hover:bg-dark-2 transition-colors duration-200">
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center">
-                        {blog.image && (
-                          <div className="flex-shrink-0 h-10 w-10 rounded-md overflow-hidden mr-4">
+        <nav className="flex-1 px-4 py-6 space-y-2">
+          <Link
+            href="/admin"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+          >
+            Dashboard
+          </Link>
+
+          <Link
+            href="/admin/blogs"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-gray-900 text-white dark:bg-white dark:text-gray-900"
+          >
+            Blog Management
+          </Link>
+
+          <Link
+            href="/admin/media"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+          >
+            Media Library
+          </Link>
+
+          <Link
+            href="/admin/analytics"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+          >
+            Analytics
+          </Link>
+        </nav>
+
+        <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+          <button
+            onClick={handleLogout}
+            className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition"
+          >
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col">
+        {/* Header */}
+        <header className="h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-6">
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+            Blog Management
+          </h2>
+
+          <Link
+            href="/admin/blogs/create"
+            className="bg-gray-900 text-white dark:bg-white dark:text-gray-900 px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition"
+          >
+            + Create Blog
+          </Link>
+        </header>
+
+        <main className="flex-1 p-6">
+          {loading ? (
+            <div className="flex justify-center py-20">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 dark:border-white"></div>
+            </div>
+          ) : error ? (
+            <div className="text-center text-red-500">{error}</div>
+          ) : (
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <table className="w-full text-sm text-left">
+                <thead className="bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+                  <tr>
+                    <th className="px-6 py-3">Title</th>
+                    <th className="px-6 py-3">Author</th>
+                    <th className="px-6 py-3">Created</th>
+                    <th className="px-6 py-3 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                  {blogs.map((blog) => (
+                    <tr key={blog.id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-3">
+                          {blog.image && (
                             <Image
                               src={blog.image}
                               alt={blog.title}
                               width={40}
                               height={40}
-                              className="object-cover"
+                              className="rounded-md object-cover"
                             />
-                          </div>
-                        )}
-                        <div>
-                          <div className="text-sm font-medium text-black dark:text-white">
+                          )}
+                          <span className="font-medium text-gray-900 dark:text-white">
                             {blog.title}
-                          </div>
-                          <div className="text-sm text-body-color dark:text-white/70">
-                            {blog.excerpt || "No excerpt"}
-                          </div>
+                          </span>
                         </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center">
-                        {blog.authorImage && (
-                          <div className="flex-shrink-0 h-8 w-8 rounded-full overflow-hidden mr-3">
-                            <Image
-                              src={blog.authorImage}
-                              alt={blog.authorName}
-                              width={32}
-                              height={32}
-                              className="object-cover"
-                            />
-                          </div>
-                        )}
-                        <div>
-                          <div className="text-sm font-medium text-black dark:text-white">
-                            {blog.authorName}
-                          </div>
-                          <div className="text-sm text-body-color dark:text-white/70">
-                            {blog.authorRole || "Author"}
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-body-color dark:text-white/70">
-                      {new Date(blog.createdAt).toLocaleDateString()}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                      <Link
-                        href={`/admin/blogs/edit/${blog.id}`}
-                        className="text-primary hover:text-primary/90 transition-colors duration-300"
-                      >
-                        Edit
-                      </Link>
-                      <button
-                        onClick={() => handleDelete(blog.id)}
-                        className="text-red-600 hover:text-red-700 transition-colors duration-300"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          
-          {blogs.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-body-color dark:text-white/70">
-                No blog posts found.{" "}
-                <Link href="/admin/blogs/create" className="text-primary hover:text-primary/90">
-                  Create your first blog post
-                </Link>
-              </p>
+                      </td>
+                      <td className="px-6 py-4 text-gray-600 dark:text-gray-300">
+                        {blog.authorName}
+                      </td>
+                      <td className="px-6 py-4 text-gray-600 dark:text-gray-300">
+                        {new Date(blog.createdAt).toLocaleDateString()}
+                      </td>
+                      <td className="px-6 py-4 text-right space-x-3">
+                        <Link
+                          href={`/admin/blogs/edit/${blog.id}`}
+                          className="text-blue-600 hover:underline"
+                        >
+                          Edit
+                        </Link>
+                        <button
+                          onClick={() => handleDelete(blog.id)}
+                          className="text-red-600 hover:underline"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+
+              {blogs.length === 0 && (
+                <div className="text-center py-10 text-gray-500 dark:text-gray-400">
+                  No blog posts found.
+                </div>
+              )}
             </div>
           )}
-        </div>
+        </main>
       </div>
     </div>
   );

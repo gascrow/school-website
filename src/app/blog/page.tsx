@@ -56,7 +56,7 @@ const Blog = () => {
   return (
     <section
       id="blog"
-      className="bg-gray-light dark:bg-bg-color-dark py-16 md:py-20 lg:py-28"
+      className="bg-gray-light dark:bg-bg-color-dark py-16 md:py-20 lg:py-20"
     >
       <div className="container">
         <SectionTitle
@@ -73,11 +73,6 @@ const Blog = () => {
                 title: blog.title,
                 paragraph: blog.excerpt || blog.content.substring(0, 100) + "...",
                 image: blog.image || "/images/blog/blog-01.jpg",
-                author: {
-                  name: blog.authorName,
-                  image: blog.authorImage || "/images/blog/author-03.png",
-                  designation: blog.authorRole || "Author",
-                },
                 tags: blog.tags ? blog.tags.split(",").map(tag => tag.trim()) : ["Blog"],
                 publishDate: new Date(blog.createdAt).toLocaleDateString(),
               }} />

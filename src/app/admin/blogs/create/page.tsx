@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -12,13 +12,12 @@ export default function CreateBlogPage() {
   const [formData, setFormData] = useState({
     title: "",
     content: "",
-    excerpt: "",
     image: "",
-    authorName: "",
-    authorImage: "",
-    authorRole: "",
     tags: "",
   });
+
+  const [mediaLibraryOpen, setMediaLibraryOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,6 +27,12 @@ export default function CreateBlogPage() {
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handleMediaSelect = (url: string) => {
+    setSelectedImage(url);
+    setFormData(prev => ({ ...prev, image: url }));
+    setMediaLibraryOpen(false);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -87,8 +92,9 @@ export default function CreateBlogPage() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Basic Information */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
+                <div className="md:col-span-2">
                   <label
                     htmlFor="title"
                     className="block text-sm font-medium text-body-color dark:text-white/70 mb-2"
@@ -106,44 +112,10 @@ export default function CreateBlogPage() {
                     placeholder="Enter blog title"
                   />
                 </div>
-                <div>
-                  <label
-                    htmlFor="authorName"
-                    className="block text-sm font-medium text-body-color dark:text-white/70 mb-2"
-                  >
-                    Author Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="authorName"
-                    name="authorName"
-                    value={formData.authorName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
-                    placeholder="Enter author name"
-                  />
-                </div>
               </div>
 
+              {/* Content & Metadata */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="authorRole"
-                    className="block text-sm font-medium text-body-color dark:text-white/70 mb-2"
-                  >
-                    Author Role
-                  </label>
-                  <input
-                    type="text"
-                    id="authorRole"
-                    name="authorRole"
-                    value={formData.authorRole}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
-                    placeholder="e.g., Content Writer, Developer"
-                  />
-                </div>
                 <div>
                   <label
                     htmlFor="tags"
@@ -158,27 +130,9 @@ export default function CreateBlogPage() {
                     value={formData.tags}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
-                    placeholder="e.g., design, development, tutorial"
+                    placeholder="e.g., school, education, news"
                   />
                 </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="excerpt"
-                  className="block text-sm font-medium text-body-color dark:text-white/70 mb-2"
-                >
-                  Excerpt
-                </label>
-                <textarea
-                  id="excerpt"
-                  name="excerpt"
-                  value={formData.excerpt}
-                  onChange={handleChange}
-                  rows={3}
-                  className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
-                  placeholder="Enter a brief excerpt of your blog post"
-                />
               </div>
 
               <div>
@@ -200,40 +154,42 @@ export default function CreateBlogPage() {
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="image"
-                    className="block text-sm font-medium text-body-color dark:text-white/70 mb-2"
-                  >
-                    Blog Image URL
-                  </label>
-                  <input
-                    type="url"
-                    id="image"
-                    name="image"
-                    value={formData.image}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
-                    placeholder="https://example.com/image.jpg"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="authorImage"
-                    className="block text-sm font-medium text-body-color dark:text-white/70 mb-2"
-                  >
-                    Author Image URL
-                  </label>
-                  <input
-                    type="url"
-                    id="authorImage"
-                    name="authorImage"
-                    value={formData.authorImage}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
-                    placeholder="https://example.com/author.jpg"
-                  />
+              <div>
+                <label
+                  htmlFor="image"
+                  className="block text-sm font-medium text-body-color dark:text-white/70 mb-2"
+                >
+                  Blog Image
+                </label>
+                <div className="space-y-3">
+                  {selectedImage && (
+                    <div className="border border-body-color/10 dark:border-white/10 rounded-lg p-2">
+                      <img
+                        src={selectedImage}
+                        alt="Selected blog image"
+                        className="w-full h-32 object-cover rounded"
+                      />
+                    </div>
+                  )}
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setMediaLibraryOpen(true)}
+                      className="flex-1 bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-300"
+                    >
+                      Select from Media Library
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedImage(null);
+                        setFormData(prev => ({ ...prev, image: "" }));
+                      }}
+                      className="bg-gray-200 dark:bg-dark-2 text-black dark:text-white px-4 py-2 rounded-lg font-medium transition-colors duration-300 hover:bg-gray-300 dark:hover:bg-dark-3"
+                    >
+                      Clear
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -256,6 +212,87 @@ export default function CreateBlogPage() {
           </div>
         </div>
       </div>
+
+      {/* Media Library Modal */}
+      {mediaLibraryOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-dark rounded-lg shadow-xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
+            <div className="flex justify-between items-center p-6 border-b border-body-color/10 dark:border-white/10">
+              <h3 className="text-lg font-semibold text-black dark:text-white">
+                Media Library
+              </h3>
+              <button
+                onClick={() => setMediaLibraryOpen(false)}
+                className="text-body-color dark:text-white/70 hover:text-black dark:hover:text-white transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="p-6">
+              <MediaLibrary onSelect={handleMediaSelect} />
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Media Library Component
+function MediaLibrary({ onSelect }: { onSelect: (url: string) => void }) {
+  const [media, setMedia] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  const fetchMedia = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch("/api/media");
+      const data = await res.json();
+      setMedia(data);
+    } catch (error) {
+      console.error("Failed to fetch media:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchMedia();
+  }, []);
+
+  return (
+    <div>
+      {loading ? (
+        <div className="text-center py-8">
+          <p className="text-body-color dark:text-white/70">Loading media...</p>
+        </div>
+      ) : media.length === 0 ? (
+        <div className="text-center py-8">
+          <p className="text-body-color dark:text-white/70">No media uploaded yet.</p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {media.map((item) => (
+            <div key={item.id} className="group relative cursor-pointer" onClick={() => onSelect(item.url)}>
+              <img
+                src={item.url}
+                alt={item.name || "Media file"}
+                className="rounded-lg object-cover w-full h-32 border-2 border-transparent group-hover:border-primary transition-colors"
+                onError={(e) => {
+                  e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMDAgMTAwTDIwMCAyMDBIMHoiIGZpbGw9IiM5Q0E0QUYiLz4KPHBhdGggZD0iTTAgMEwyMDAgMjAwVjBIMHoiIGZpbGw9IiM5Q0E0QUYiLz4KPHRleHQgeD0iMTAwIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzZDN0E4QiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pgo8L3N2Zz4K";
+                }}
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 rounded-lg transition-all flex items-center justify-center">
+                <span className="text-white text-sm opacity-0 group-hover:opacity-100 bg-black bg-opacity-50 px-2 py-1 rounded">
+                  Select
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

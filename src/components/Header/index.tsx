@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import ThemeToggler from "./ThemeToggler";
+import { Instagram, Facebook, MessageCircle } from "lucide-react";
 
 const Header = () => {
   // Navbar toggle
@@ -84,7 +84,7 @@ const Header = () => {
         onMouseLeave={handleMouseLeave}
       >
         <div className="container">
-          <div className="relative -mx-4 flex items-center justify-between">
+          <div className="relative -mx-2 flex items-center justify-between">
             <div className="w-60 max-w-full px-4 xl:mr-12">
               <Link
                 href="/"
@@ -114,27 +114,27 @@ const Header = () => {
                   onClick={navbarToggleHandler}
                   id="navbarToggler"
                   aria-label="Mobile Menu"
-                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-lg px-3 py-[6px] focus:ring-2 lg:hidden"
+                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-lg px-2 py-1 focus:ring-1 lg:hidden"
                 >
                   <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? "top-[7px] rotate-45" : " "
+                    className={`relative my-1 block h-0.5 w-[24px] bg-black transition-all duration-300 dark:bg-white ${
+                      navbarOpen ? "top-[6px] rotate-45" : " "
                     }`}
                   />
                   <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                    className={`relative my-1 block h-0.5 w-[24px] bg-black transition-all duration-300 dark:bg-white ${
                       navbarOpen ? "opacity-0" : " "
                     }`}
                   />
                   <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? "top-[-8px] -rotate-45" : " "
+                    className={`relative my-1 block h-0.5 w-[24px] bg-black transition-all duration-300 dark:bg-white ${
+                      navbarOpen ? "top-[-7px] -rotate-45" : " "
                     }`}
                   />
                 </button>
                 <nav
                   id="navbarCollapse"
-                  className={`navbar border-body-color/50 dark:border-body-color/20 dark:bg-dark absolute right-0 z-30 w-[250px] rounded border-[.5px] bg-white px-6 py-4 duration-300 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
+                  className={`navbar border-body-color/50 dark:border-body-color/20 dark:bg-dark absolute right-0 z-30 w-full h-screen bg-white px-6 py-8 lg:w-auto lg:h-auto lg:visible lg:static lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
                     navbarOpen
                       ? "visibility top-full opacity-100"
                       : "invisible top-[120%] opacity-50"
@@ -146,12 +146,12 @@ const Header = () => {
                     <li className="group relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                       <p
                         onClick={() => handleSubmenu(1)}
-                        className="relative z-10 text-dark flex cursor-pointer items-center gap-0 pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 
+                        className="relative z-10 text-dark flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 
                         hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                       >
-                        Tentang Kami
-                        <span className="ml-0.5">
-                          <svg width="5-" height="24" viewBox="0 0 25 24">
+                        <span>Tentang Kami</span>
+                        <span className="ml-2">
+                          <svg width="20" height="20" viewBox="0 0 24 24" className="inline-block">
                             <path
                               fillRule="evenodd"
                               clipRule="evenodd"
@@ -206,15 +206,6 @@ const Header = () => {
 
                           {/* Kolom 2: Tentang Kami */}
                           <div className="space-y-8">
-                            <div className="w-full h-32 bg-gray-200 rounded-lg overflow-hidden">
-                                <Image
-                                  src="/images/about/about-image.svg"
-                                  alt="Tentang Kami"
-                                  width={400}
-                                  height={128}
-                                  className="w-0 h-full object-cover"
-                                />
-                              </div>
                             <div>
                               <Link
                                 href="/about"
@@ -236,11 +227,11 @@ const Header = () => {
                     <li className="group relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                       <p
                         onClick={() => handleSubmenu(2)}
-                        className="relative z-20 text-dark flex cursor-pointer items-center gap-0 pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
+                        className="relative z-20 text-dark flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                       >
-                        Program
-                        <span className="ml-0.5">
-                          <svg width="5-" height="24" viewBox="0 0 25 24">
+                        <span>Program</span>
+                        <span className="ml-2">
+                          <svg width="20" height="20" viewBox="0 0 24 24" className="inline-block">
                             <path
                               fillRule="evenodd"
                               clipRule="evenodd"
@@ -275,15 +266,6 @@ const Header = () => {
                               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                                 Program pendidikan setara Sekolah Dasar (SD) yang dirancang khusus untuk peserta didik yang membutuhkan pendidikan dasar dalam format yang fleksibel dan terstruktur.
                               </p>
-                              <div className="w-full h-32 bg-gray-200 rounded-lg overflow-hidden">
-                                <Image
-                                  src="/images/about/about-image.svg"
-                                  alt="Paket Setara SD"
-                                  width={400}
-                                  height={128}
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
                             </div>
                           </div>
 
@@ -299,15 +281,6 @@ const Header = () => {
                               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                                 Program pendidikan setara Sekolah Menengah Pertama (SMP) yang memberikan kesempatan bagi peserta didik untuk melanjutkan pendidikan menengah pertama secara fleksibel.
                               </p>
-                              <div className="w-full h-32 bg-gray-200 rounded-lg overflow-hidden">
-                                <Image
-                                  src="/images/about/about-image.svg"
-                                  alt="Paket Setara SMP"
-                                  width={400}
-                                  height={128}
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
                             </div>
                           </div>
 
@@ -323,15 +296,6 @@ const Header = () => {
                               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                                 Program pendidikan setara Sekolah Menengah Atas (SMA) yang memungkinkan peserta didik menyelesaikan pendidikan menengah atas dengan metode pembelajaran yang adaptif.
                               </p>
-                              <div className="w-full h-32 bg-gray-200 rounded-lg overflow-hidden">
-                                <Image
-                                  src="/images/about/about-image.svg"
-                                  alt="Paket Setara SMA"
-                                  width={400}
-                                  height={128}
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -342,11 +306,11 @@ const Header = () => {
                     <li className="group relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                       <p
                         onClick={() => handleSubmenu(3)}
-                        className="relative z-20 text-dark flex cursor-pointer items-center gap-0 pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
+                        className="relative z-20 text-dark flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                       >
-                        Informasi
-                        <span className="ml-0.5">
-                          <svg width="5-" height="24" viewBox="0 0 25 24">
+                        <span>Informasi</span>
+                        <span className="ml-2">
+                          <svg width="20" height="20" viewBox="0 0 24 24" className="inline-block">
                             <path
                               fillRule="evenodd"
                               clipRule="evenodd"
@@ -426,15 +390,35 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="flex items-center justify-end pr-16 lg:pr-0">
-                <Link
-                  href="/Login"
-                  className="ease-in-up shadow-btn hover:shadow-btn-hover bg-primary hover:bg-primary/90 hidden  px-8 py-1 text-md font-medium text-white transition duration-300 rounded-xs md:block md:px-9 lg:px-6 xl:px-9"
-                >
-                  Login
-                </Link>
-                <div>
-                  <ThemeToggler />
+              <div className="flex items-center justify-end pr-16 lg:pr-0 space-x-2">
+                {/* Social Media Buttons - Desktop Only */}
+                <div className="hidden lg:flex space-x-2">
+                  {[
+                    { href: "https://instagram.com", label: "Instagram", icon: Instagram, bg: "bg-pink-500" },
+                    { href: "https://facebook.com", label: "Facebook", icon: Facebook, bg: "bg-blue-600" },
+                    { href: "https://wa.me", label: "WhatsApp", icon: MessageCircle, bg: "bg-green-500" },
+                  ].map((social) => {
+                    const Icon = social.icon;
+                    return (
+                      <div key={social.label} className="relative group w-10 h-10">
+                        <Link
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="relative z-10 w-full h-full flex items-center justify-center rounded-full bg-gray-200 overflow-hidden transition-all duration-300"
+                          aria-label={social.label}
+                        >
+                          {/* Glass fill effect - rectangular inside circular button */}
+                          <div className={`absolute inset-0 ${social.bg} scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-500 ease-out rounded-0`}></div>
+                          <Icon className="h-5= w-5 text-gray-700 group-hover:text-white relative z-20 transition-colors duration-300" />
+                        </Link>
+                        {/* Tooltip */}
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-[-80] px-3 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+                          {social.label === "WhatsApp" ? "WhatsApp" : `${social.label}`}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

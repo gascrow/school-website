@@ -10,11 +10,11 @@ const Hero = () => {
       >
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container relative z-10">
-          <div className="-mx-4 flex flex-wrap">
+          <div className="-mx-2 flex flex-wrap">
             <div className="w-full px-4">
               <div className="max-w-[800px]">
                 <h1 className="mb-5 text-3xl font-bold leading-tight text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                  Selamat datang di PKBM Balikpapan
+                  Selamat datang di PKBM Balikpapan School
                 </h1>
                 <p className="mb-8 text-base leading-relaxed text-white/90 sm:text-lg md:text-xl">
                   Lembaga pendidikan non-formal yang memberikan kesempatan belajar bagi masyarakat yang ingin melanjutkan pendidikan setara SD, SMP, dan SMA. Kami berkomitmen memberikan pendidikan berkualitas dengan metode pembelajaran yang fleksibel dan terstruktur.

@@ -1,9 +1,7 @@
 "use client";
 
-import { useTheme } from "next-themes";
-
 const NewsLatterBox = () => {
-  const { theme } = useTheme();
+  const theme = "light";
 
   return (
     <div className="shadow-three dark:bg-gray-dark relative z-10 rounded-xs bg-white p-8 sm:p-11 lg:p-8 xl:p-11">

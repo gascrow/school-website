@@ -10,7 +10,7 @@ const testimonialData: Testimonial[] = [
     content:
       "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
     image: "/images/testimonials/auth-01.png",
-    star: 5,
+    star: 0,
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const testimonialData: Testimonial[] = [
     content:
       "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
     image: "/images/testimonials/auth-02.png",
-    star: 5,
+    star: 0,
   },
   {
     id: 3,
@@ -28,20 +28,18 @@ const testimonialData: Testimonial[] = [
     content:
       "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
     image: "/images/testimonials/auth-03.png",
-    star: 5,
+    star: 0,
   },
 ];
 
+{/* <div class="bg-gradient-to-r from-primary to-secondary p-6 text-white rounded-lg">
+  Konten dengan gradient dari primary ke secondary
+</div> */}
+
 const Testimonials = () => {
   return (
-    <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
+    <section className="dark:bg-bg-color-dark bg-primary p-6 text-white  relative z-10 py-16 md:py-20 lg:py-20">
       <div className="container">
-        <SectionTitle
-          title="What Our Users Says"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
-          center
-        />
-
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           {testimonialData.map((testimonial) => (
             <SingleTestimonial key={testimonial.id} testimonial={testimonial} />
@@ -102,7 +100,8 @@ const Testimonials = () => {
           </defs>
         </svg>
       </div>
-      <div className="absolute bottom-5 left-0 z-[-1]">
+      
+      {/* <div className="absolute bottom-5 left-0 z-[-1]">
         <svg
           width="279"
           height="106"
@@ -137,8 +136,8 @@ const Testimonials = () => {
               y2="8.15715"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="#4A6CF7" stopOpacity="0" />
-              <stop offset="1" stopColor="#4A6CF7" />
+              <stop stopColor="#519de9" stopOpacity="0" />
+              <stop offset="1" stopColor="#519de9" />
             </linearGradient>
             <linearGradient
               id="paint1_linear_72:302"
@@ -148,8 +147,8 @@ const Testimonials = () => {
               y2="-2.84285"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="#4A6CF7" stopOpacity="0" />
-              <stop offset="1" stopColor="#4A6CF7" />
+              <stop stopColor="#519de9" stopOpacity="0" />
+              <stop offset="1" stopColor="#519de9" />
             </linearGradient>
             <linearGradient
               id="paint2_linear_72:302"
@@ -159,8 +158,8 @@ const Testimonials = () => {
               y2="19.1572"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="#4A6CF7" stopOpacity="0" />
-              <stop offset="1" stopColor="#4A6CF7" />
+              <stop stopColor="#519de9" stopOpacity="0" />
+              <stop offset="1" stopColor="#519de9" />
             </linearGradient>
             <linearGradient
               id="paint3_linear_72:302"
@@ -170,13 +169,15 @@ const Testimonials = () => {
               y2="31.1572"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="#4A6CF7" stopOpacity="0" />
-              <stop offset="1" stopColor="#4A6CF7" />
+              <stop stopColor="#519de9" stopOpacity="0" />
+              <stop offset="1" stopColor="#519de9" />
             </linearGradient>
           </defs>
         </svg>
-      </div>
+      </div> */}
+
     </section>
+    
   );
 };
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { clearAdminAuthCookie } from "@/lib/auth";
 
-export default function AdminPage() {
+export default function AnalyticsPage() {
   return (
     <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900">
       {/* Sidebar */}
@@ -15,7 +15,7 @@ export default function AdminPage() {
         <nav className="flex-1 px-4 py-6 space-y-2">
           <Link
             href="/admin"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-gray-900 text-white dark:bg-white dark:text-gray-900"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           >
             Dashboard
           </Link>
@@ -36,7 +36,7 @@ export default function AdminPage() {
 
           <Link
             href="/admin/analytics"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-gray-900 text-white dark:bg-white dark:text-gray-900"
           >
             Analytics
           </Link>
@@ -64,7 +64,7 @@ export default function AdminPage() {
         {/* Topbar */}
         <header className="h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-6">
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-            Dashboard
+            Analytics
           </h2>
 
           <div className="flex items-center space-x-4">
@@ -81,7 +81,7 @@ export default function AdminPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Total Posts
+                Total Visitors
               </p>
               <p className="text-2xl font-semibold text-gray-900 dark:text-white mt-2">
                 0
@@ -90,7 +90,7 @@ export default function AdminPage() {
 
             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Active Users
+                Page Views
               </p>
               <p className="text-2xl font-semibold text-gray-900 dark:text-white mt-2">
                 0
@@ -99,10 +99,10 @@ export default function AdminPage() {
 
             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Total Views
+                Bounce Rate
               </p>
               <p className="text-2xl font-semibold text-gray-900 dark:text-white mt-2">
-                0
+                0%
               </p>
             </div>
           </div>

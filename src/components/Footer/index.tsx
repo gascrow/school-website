@@ -5,14 +5,14 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <footer className="relative z-10 bg-white pt-16 dark:bg-gray-dark md:pt-20 lg:pt-24">
+      <footer className="relative z-10 bg-primary pt-16 dark:bg-gray-dark md:pt-20 lg:pt-24">
         <div className="container">
-          <div className="-mx-4 flex flex-wrap">
+          <div className="-mx-2 flex flex-wrap">
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
               <div className="mb-12 max-w-[360px] lg:mb-16">
                 <Link href="/" className="mb-8 inline-block">
                   <Image
-                    src="/images/logo/pkbm-intan.png"
+                    src="/images/logo/pkbm-white.png"
                     alt="logo"
                     className="w-full dark:hidden"
                     width={200}
@@ -94,7 +94,7 @@ const Footer = () => {
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="text-white duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                   >
                     <svg
                       width="17"
@@ -111,14 +111,14 @@ const Footer = () => {
 
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
-                <h2 className="mb-10 text-xl font-extrabold text-black dark:text-white">
+                <h2 className="mb-10 text-xl font-extrabold text-white dark:text-white">
                   Useful Links
                 </h2>
                 <ul>
                   <li>
                     <Link
                       href="/blog"
-                      className="mb-4 inline-block text-lg text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary font-semibold"
+                      className="mb-4 inline-block text-md text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary font-semibold"
                     >
                       Blog
                     </Link>
@@ -126,7 +126,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/"
-                      className="mb-4 inline-block text-lg text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary font-semibold"
+                      className="mb-4 inline-block text-md text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary font-semibold"
                     >
                       Pricing
                     </Link>
@@ -134,7 +134,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/about"
-                      className="mb-4 inline-block text-lg text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary font-semibold"
+                      className="mb-4 inline-block text-md text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary font-semibold"
                     >
                       About
                     </Link>
@@ -145,7 +145,7 @@ const Footer = () => {
 
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
-                <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
+                <h2 className="mb-10 text-xl font-bold text-white dark:text-white">
                   Terms
                 </h2>
                 <ul>
@@ -179,7 +179,7 @@ const Footer = () => {
 
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-12 lg:mb-16">
-                <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
+                <h2 className="mb-10 text-xl font-bold text-white dark:text-white">
                   Support & Help
                 </h2>
                 <ul>
