@@ -38,7 +38,7 @@ const testimonialData: Testimonial[] = [
 
 const Testimonials = () => {
   return (
-    <section className="dark:bg-bg-color-dark bg-primary p-6 text-white  relative z-10 py-16 md:py-20 lg:py-20">
+    <section className="dark:bg-bg-color-dark bg-primary p-6 text-white relative z-20 -mt-20 md:-mt-24 lg:-mt-28 py-16 md:py-20 lg:py-24">
       <div className="container">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           {testimonialData.map((testimonial) => (

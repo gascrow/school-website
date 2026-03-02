@@ -43,7 +43,7 @@ const Blog = () => {
 
   if (loading) {
     return (
-      <section className="bg-gray-light dark:bg-bg-color-dark py-16 md:py-20 lg:py-28">
+      <section className="bg-white py-16 md:py-20 lg:py-28">
         <div className="container">
           <div className="flex justify-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
@@ -56,7 +56,7 @@ const Blog = () => {
   return (
     <section
       id="blog"
-      className="bg-gray-light dark:bg-bg-color-dark py-16 md:py-20 lg:py-20"
+      className="bg-white py-16 md:py-20 lg:py-20"
     >
       <div className="container">
         <SectionTitle

@@ -8,7 +8,7 @@ export default function AdminPage() {
       <aside className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 hidden md:flex md:flex-col">
         <div className="h-16 flex items-center px-6 border-b border-gray-200 dark:border-gray-700">
           <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
-            PKBM Intan
+            PKBM Kejuruan Terbuka
           </h1>
         </div>
 
