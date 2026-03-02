@@ -28,9 +28,9 @@ const SingleProgram = ({ program }: { program: Program }) => {
 
   return (
     <div className="w-full relative">
-      <div className={`shadow-two dark:bg-dark dark:shadow-three bg-white p-0 duration-300 lg:px-0 xl:px-0 relative z-30 -mt-20 md:-mt-24 lg:-mt-28 ${program.name.includes("Paket A") ? "rounded-tl-2xl" : program.name.includes("Paket C") ? "rounded-tr-2xl" : ""}`}>
+      <div className={`shadow-two dark:bg-dark dark:shadow-three bg-white p-0 duration-300 lg:px-0 xl:px-0 relative z-30 -mt-20 md:-mt-24 lg:-mt-28 ${program.name.includes("Paket A") ? "rounded-tl-md" : program.name.includes("Paket C") ? "rounded-tr-md" : ""}`}>
         {/* Header with Primary Color */}
-        <div className={`bg-primary text-white px-6 py-8 ${program.name.includes("Paket A") ? "rounded-tl-2xl" : program.name.includes("Paket C") ? "rounded-tr-2xl" : ""}`}>
+        <div className={`bg-primary text-white px-6 py-8 ${program.name.includes("Paket A") ? "rounded-tl-md" : program.name.includes("Paket C") ? "rounded-tr-md" : ""}`}>
           <div className="flex items-center space-x-3">
             <div className="flex-shrink-0">
               {getProgramIcon(name)}
@@ -56,16 +56,16 @@ const SingleProgram = ({ program }: { program: Program }) => {
         </div>
       </div>
       
-      {/* Description Section - Outside the card but below the image */}
-      <div className="p-6 bg-white dark:bg-dark">
-        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+      {/* Description Section - Sejajar dengan card, padding top */}
+      <div className="dark:bg-dark pt-4">
+        <p className="text-md text-gray-600 dark:text-gray-300 leading-relaxed">
           {content}
         </p>
         {url && (
           <div className="mt-4">
             <Link 
               href={url}
-              className="inline-flex items-center px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-opacity-90 transition-colors"
+              className="inline-flex items-center   text-primary text-md font-medium rounded-md  transition-colors"
             >
               Selengkapnya
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

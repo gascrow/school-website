@@ -10,9 +10,6 @@ interface Blog {
   content: string;
   excerpt: string | null;
   image: string | null;
-  authorName: string;
-  authorImage: string | null;
-  authorRole: string | null;
   tags: string | null;
   publishDate: string;
   createdAt: string;
@@ -46,7 +43,7 @@ const Blog = () => {
       <section className="bg-white py-16 md:py-20 lg:py-28">
         <div className="container">
           <div className="flex justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+            <div className="animate-spin rounded-md h-12 w-12 border-b-2 border-primary"></div>
           </div>
         </div>
       </section>
@@ -59,11 +56,6 @@ const Blog = () => {
       className="bg-white py-16 md:py-20 lg:py-20"
     >
       <div className="container">
-        <SectionTitle
-          title="Our Latest Blogs"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
-          center
-        />
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 md:gap-x-6 lg:gap-x-8 xl:grid-cols-3">
           {blogs.map((blog) => (

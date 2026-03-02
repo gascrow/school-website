@@ -15,8 +15,8 @@ const Footer = () => {
                     src="/images/logo/pkbm-kt-white.png"
                     alt="logo"
                     className="w-full dark:hidden"
-                    width={200}
-                    height={50}
+                    width={180}
+                    height={30}
                   />
                   <Image
                     src="/images/logo/logo.svg"
@@ -26,10 +26,6 @@ const Footer = () => {
                     height={30}
                   />
                 </Link>
-                <p className="mb-9 text-white leading-relaxed text-body-color dark:text-body-color-dark">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer lobortis.
-                </p>
 
               </div>
             </div>

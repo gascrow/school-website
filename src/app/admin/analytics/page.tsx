@@ -15,28 +15,28 @@ export default function AnalyticsPage() {
         <nav className="flex-1 px-4 py-6 space-y-2">
           <Link
             href="/admin"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           >
             Dashboard
           </Link>
 
           <Link
             href="/admin/blogs"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           >
             Blog Management
           </Link>
 
           <Link
             href="/admin/media"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           >
             Media Library
           </Link>
 
           <Link
             href="/admin/analytics"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-gray-900 text-white dark:bg-white dark:text-gray-900"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-md bg-gray-900 text-white dark:bg-white dark:text-gray-900"
           >
             Analytics
           </Link>
@@ -51,7 +51,7 @@ export default function AnalyticsPage() {
           >
             <button
               type="submit"
-              className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition"
+              className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition"
             >
               Logout
             </button>
@@ -71,15 +71,15 @@ export default function AnalyticsPage() {
             <input
               type="text"
               placeholder="Search..."
-              className="hidden md:block px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-white"
+              className="hidden md:block px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-white"
             />
-            <div className="h-8 w-8 rounded-full bg-gray-300 dark:bg-gray-600" />
+            <div className="h-8 w-8 rounded-md bg-gray-300 dark:bg-gray-600" />
           </div>
         </header>
 
         <main className="flex-1 p-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-md border border-gray-200 dark:border-gray-700">
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 Total Visitors
               </p>
@@ -88,7 +88,7 @@ export default function AnalyticsPage() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-md border border-gray-200 dark:border-gray-700">
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 Page Views
               </p>
@@ -97,7 +97,7 @@ export default function AnalyticsPage() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-md border border-gray-200 dark:border-gray-700">
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 Bounce Rate
               </p>

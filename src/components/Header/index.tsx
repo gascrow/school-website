@@ -115,7 +115,7 @@ const Header = () => {
                   onClick={navbarToggleHandler}
                   id="navbarToggler"
                   aria-label="Mobile Menu"
-                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-lg px-2 py-1 focus:ring-1 lg:hidden"
+                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-md px-2 py-1 focus:ring-1 lg:hidden"
                 >
                   <span
                     className={`relative my-1 block h-0.5 w-[24px] bg-black transition-all duration-300 dark:bg-white ${
@@ -167,7 +167,7 @@ const Header = () => {
                         className={`submenu z-50 dark:bg-dark bg-white
                           absolute top-full left-0 w-full
                           lg:absolute lg:top-[70%] lg:left-0 lg:right-0 lg:w-screen lg:max-w-4xl
-                          lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-lg lg:shadow-lg lg:p-8
+                          lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-md lg:shadow-lg lg:p-8
                           lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible
                           lg:transition-all lg:duration-300
                           ${openIndex === 1 ? "block" : "hidden"}
@@ -246,8 +246,8 @@ const Header = () => {
                       <div
                         className={`submenu z-50 dark:bg-dark bg-white
                           absolute top-full left-0 w-full
-                          lg:absolute lg:top-[70%] lg:left-[-172] lg:right-0 lg:w-screen lg:max-w-4xl
-                          lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-lg lg:shadow-lg lg:p-8
+                          lg:absolute lg:top-[70%] lg:left-[-156] lg:right-0 lg:w-screen lg:max-w-4xl
+                          lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-md lg:shadow-lg lg:p-8
                           lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible
                           lg:transition-all lg:duration-300
                           ${openIndex === 2 ? "block" : "hidden"}
@@ -325,8 +325,8 @@ const Header = () => {
                       <div
                         className={`submenu z-50 dark:bg-dark bg-white
                           absolute top-full left-0 w-full
-                          lg:absolute lg:top-[70%] lg:left-[-307] lg:right-0 lg:w-screen lg:max-w-4xl
-                          lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-lg lg:shadow-lg lg:p-8
+                          lg:absolute lg:top-[70%] lg:left-[-276] lg:right-0 lg:w-screen lg:max-w-4xl
+                          lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-md lg:shadow-lg lg:p-8
                           lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible
                           lg:transition-all lg:duration-300
                           ${openIndex === 3 ? "block" : "hidden"}
@@ -407,7 +407,7 @@ const Header = () => {
                           href={social.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="relative z-10 w-full h-full flex items-center justify-center rounded-full bg-gray-200 overflow-hidden transition-all duration-300"
+                          className="relative z-10 w-full h-full flex items-center justify-center rounded-md bg-gray-200 overflow-hidden transition-all duration-300"
                           aria-label={social.label}
                         >
                           {/* Glass fill effect - rectangular inside circular button */}

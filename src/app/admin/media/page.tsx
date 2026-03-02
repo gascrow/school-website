@@ -59,28 +59,28 @@ export default function MediaPage() {
         <nav className="flex-1 px-4 py-6 space-y-2">
           <Link
             href="/admin"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           >
             Dashboard
           </Link>
 
           <Link
             href="/admin/blogs"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           >
             Blog Management
           </Link>
 
           <Link
             href="/admin/media"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-gray-900 text-white dark:bg-white dark:text-gray-900"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-md bg-gray-900 text-white dark:bg-white dark:text-gray-900"
           >
             Media Library
           </Link>
 
           <Link
             href="/admin/analytics"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           >
             Analytics
           </Link>
@@ -89,7 +89,7 @@ export default function MediaPage() {
         <div className="p-4 border-t border-gray-200 dark:border-gray-700">
           <button
             onClick={handleLogout}
-            className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition"
+            className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition"
           >
             Logout
           </button>
@@ -108,9 +108,9 @@ export default function MediaPage() {
             <input
               type="text"
               placeholder="Search..."
-              className="hidden md:block px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-white"
+              className="hidden md:block px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-white"
             />
-            <div className="h-8 w-8 rounded-full bg-gray-300 dark:bg-gray-600" />
+            <div className="h-8 w-8 rounded-md bg-gray-300 dark:bg-gray-600" />
           </div>
         </header>
 
@@ -123,7 +123,7 @@ export default function MediaPage() {
             <input
               type="file"
               onChange={handleUpload}
-              className="block w-full text-sm border border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 dark:text-white p-2"
+              className="block w-full text-sm border border-gray-300 dark:border-gray-600 rounded-md cursor-pointer bg-gray-50 dark:bg-gray-700 dark:text-white p-2"
             />
             {loading && (
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Uploading...</p>
@@ -140,13 +140,13 @@ export default function MediaPage() {
                   <img
                     src={item.url}
                     alt={item.name || "Media file"}
-                    className="rounded-lg object-cover w-full h-40 border-2 border-transparent group-hover:border-primary transition-colors"
+                    className="rounded-md object-cover w-full h-40 border-2 border-transparent group-hover:border-primary transition-colors"
                     onError={(e) => {
                       e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMDAgMTAwTDIwMCAyMDBIMHoiIGZpbGw9IiM5Q0E0QUYiLz4KPHBhdGggZD0iTTAgMEwyMDAgMjAwVjBIMHoiIGZpbGw9IiM5Q0E0QUYiLz4KPHRleHQgeD0iMTAwIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzZDN0E4QiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pgo8L3N2Zz4K";
                     }}
                   />
 
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 rounded-lg transition-all flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 rounded-md transition-all flex items-center justify-center">
                     <span className="text-white text-sm opacity-0 group-hover:opacity-100 bg-black bg-opacity-50 px-2 py-1 rounded">
                       Select
                     </span>

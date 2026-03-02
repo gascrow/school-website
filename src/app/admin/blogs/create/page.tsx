@@ -88,9 +88,9 @@ export default function CreateBlogPage() {
             </Link>
           </div>
 
-          <div className="bg-white dark:bg-dark rounded-lg shadow-one dark:shadow-gray-dark p-8">
+          <div className="bg-white dark:bg-dark rounded-md shadow-one dark:shadow-gray-dark p-8">
             {error && (
-              <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+              <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md">
                 <p className="text-red-600 dark:text-red-400">{error}</p>
               </div>
             )}
@@ -112,7 +112,7 @@ export default function CreateBlogPage() {
                     value={formData.title}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
                     placeholder="Enter blog title"
                   />
                 </div>
@@ -133,7 +133,7 @@ export default function CreateBlogPage() {
                     name="tags"
                     value={formData.tags}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
                     placeholder="e.g., school, education, news"
                   />
                 </div>
@@ -152,7 +152,7 @@ export default function CreateBlogPage() {
                   value={formData.excerpt}
                   onChange={handleChange}
                   rows={3}
-                  className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                  className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
                   placeholder="Brief description of the blog post..."
                 />
               </div>
@@ -171,7 +171,7 @@ export default function CreateBlogPage() {
                   onChange={handleChange}
                   rows={10}
                   required
-                  className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                  className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
                   placeholder="Write your blog content here..."
                 />
               </div>
@@ -185,7 +185,7 @@ export default function CreateBlogPage() {
                 </label>
                 <div className="space-y-3">
                   {selectedImage && (
-                    <div className="border border-body-color/10 dark:border-white/10 rounded-lg p-2">
+                    <div className="border border-body-color/10 dark:border-white/10 rounded-md p-2">
                       <img
                         src={selectedImage}
                         alt="Selected blog image"
@@ -197,7 +197,7 @@ export default function CreateBlogPage() {
                     <button
                       type="button"
                       onClick={() => setMediaLibraryOpen(true)}
-                      className="flex-1 bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-300"
+                      className="flex-1 bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md font-medium transition-colors duration-300"
                     >
                       Select from Media Library
                     </button>
@@ -207,7 +207,7 @@ export default function CreateBlogPage() {
                         setSelectedImage(null);
                         setFormData(prev => ({ ...prev, image: "" }));
                       }}
-                      className="bg-gray-200 dark:bg-dark-2 text-black dark:text-white px-4 py-2 rounded-lg font-medium transition-colors duration-300 hover:bg-gray-300 dark:hover:bg-dark-3"
+                      className="bg-gray-200 dark:bg-dark-2 text-black dark:text-white px-4 py-2 rounded-md font-medium transition-colors duration-300 hover:bg-gray-300 dark:hover:bg-dark-3"
                     >
                       Clear
                     </button>
@@ -219,13 +219,13 @@ export default function CreateBlogPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-bold transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-md font-bold transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? "Creating..." : "Create Blog"}
                 </button>
                 <Link
                   href="/admin/blogs"
-                  className="bg-gray-200 dark:bg-dark-2 text-black dark:text-white px-8 py-3 rounded-lg font-bold transition-colors duration-300 hover:bg-gray-300 dark:hover:bg-dark-3"
+                  className="bg-gray-200 dark:bg-dark-2 text-black dark:text-white px-8 py-3 rounded-md font-bold transition-colors duration-300 hover:bg-gray-300 dark:hover:bg-dark-3"
                 >
                   Cancel
                 </Link>
@@ -238,7 +238,7 @@ export default function CreateBlogPage() {
       {/* Media Library Modal */}
       {mediaLibraryOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white dark:bg-dark rounded-lg shadow-xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
+          <div className="bg-white dark:bg-dark rounded-md shadow-xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
             <div className="flex justify-between items-center p-6 border-b border-body-color/10 dark:border-white/10">
               <h3 className="text-lg font-semibold text-black dark:text-white">
                 Media Library
@@ -301,12 +301,12 @@ function MediaLibrary({ onSelect }: { onSelect: (url: string) => void }) {
               <img
                 src={item.url}
                 alt={item.name || "Media file"}
-                className="rounded-lg object-cover w-full h-32 border-2 border-transparent group-hover:border-primary transition-colors"
+                className="rounded-md object-cover w-full h-32 border-2 border-transparent group-hover:border-primary transition-colors"
                 onError={(e) => {
                   e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMDAgMTAwTDIwMCAyMDBIMHoiIGZpbGw9IiM5Q0E0QUYiLz4KPHBhdGggZD0iTTAgMEwyMDAgMjAwVjBIMHoiIGZpbGw9IiM5Q0E0QUYiLz4KPHRleHQgeD0iMTAwIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzZDN0E4QiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pgo8L3N2Zz4K";
                 }}
               />
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 rounded-lg transition-all flex items-center justify-center">
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 rounded-md transition-all flex items-center justify-center">
                 <span className="text-white text-sm opacity-0 group-hover:opacity-100 bg-black bg-opacity-50 px-2 py-1 rounded">
                   Select
                 </span>

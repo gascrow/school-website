@@ -113,7 +113,7 @@ export default function EditBlogPage() {
       <div className="min-h-screen bg-gray-light dark:bg-bg-color-dark py-16">
         <div className="container">
           <div className="flex justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+            <div className="animate-spin rounded-md h-12 w-12 border-b-2 border-primary"></div>
           </div>
         </div>
       </div>
@@ -185,9 +185,9 @@ export default function EditBlogPage() {
             </Link>
           </div>
 
-          <div className="bg-white dark:bg-dark rounded-lg shadow-one dark:shadow-gray-dark p-8">
+          <div className="bg-white dark:bg-dark rounded-md shadow-one dark:shadow-gray-dark p-8">
             {error && (
-              <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+              <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md">
                 <p className="text-red-600 dark:text-red-400">{error}</p>
               </div>
             )}
@@ -208,7 +208,7 @@ export default function EditBlogPage() {
                     value={formData.title}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
                     placeholder="Enter blog title"
                   />
                 </div>
@@ -226,7 +226,7 @@ export default function EditBlogPage() {
                     value={formData.authorName}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
                     placeholder="Enter author name"
                   />
                 </div>
@@ -246,7 +246,7 @@ export default function EditBlogPage() {
                     name="authorRole"
                     value={formData.authorRole}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
                     placeholder="e.g., Content Writer, Developer"
                   />
                 </div>
@@ -263,7 +263,7 @@ export default function EditBlogPage() {
                     name="tags"
                     value={formData.tags}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
                     placeholder="e.g., design, development, tutorial"
                   />
                 </div>
@@ -282,7 +282,7 @@ export default function EditBlogPage() {
                   value={formData.excerpt}
                   onChange={handleChange}
                   rows={3}
-                  className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                  className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
                   placeholder="Enter a brief excerpt of your blog post"
                 />
               </div>
@@ -301,7 +301,7 @@ export default function EditBlogPage() {
                   onChange={handleChange}
                   rows={10}
                   required
-                  className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                  className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
                   placeholder="Write your blog content here..."
                 />
               </div>
@@ -320,7 +320,7 @@ export default function EditBlogPage() {
                     name="image"
                     value={formData.image}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
                     placeholder="https://example.com/image.jpg"
                   />
                 </div>
@@ -337,7 +337,7 @@ export default function EditBlogPage() {
                     name="authorImage"
                     value={formData.authorImage}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-body-color/10 dark:border-white/10 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-dark-2 text-black dark:text-white transition-all duration-300"
                     placeholder="https://example.com/author.jpg"
                   />
                 </div>
@@ -347,13 +347,13 @@ export default function EditBlogPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-bold transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-md font-bold transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? "Updating..." : "Update Blog"}
                 </button>
                 <Link
                   href="/admin/blogs"
-                  className="bg-gray-200 dark:bg-dark-2 text-black dark:text-white px-8 py-3 rounded-lg font-bold transition-colors duration-300 hover:bg-gray-300 dark:hover:bg-dark-3"
+                  className="bg-gray-200 dark:bg-dark-2 text-black dark:text-white px-8 py-3 rounded-md font-bold transition-colors duration-300 hover:bg-gray-300 dark:hover:bg-dark-3"
                 >
                   Cancel
                 </Link>

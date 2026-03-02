@@ -84,28 +84,28 @@ export default function AdminBlogsPage() {
         <nav className="flex-1 px-4 py-6 space-y-2">
           <Link
             href="/admin"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           >
             Dashboard
           </Link>
 
           <Link
             href="/admin/blogs"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-gray-900 text-white dark:bg-white dark:text-gray-900"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-md bg-gray-900 text-white dark:bg-white dark:text-gray-900"
           >
             Blog Management
           </Link>
 
           <Link
             href="/admin/media"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           >
             Media Library
           </Link>
 
           <Link
             href="/admin/analytics"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           >
             Analytics
           </Link>
@@ -114,7 +114,7 @@ export default function AdminBlogsPage() {
         <div className="p-4 border-t border-gray-200 dark:border-gray-700">
           <button
             onClick={handleLogout}
-            className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition"
+            className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition"
           >
             Logout
           </button>
@@ -131,7 +131,7 @@ export default function AdminBlogsPage() {
 
           <Link
             href="/admin/blogs/create"
-            className="bg-gray-900 text-white dark:bg-white dark:text-gray-900 px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition"
+            className="bg-gray-900 text-white dark:bg-white dark:text-gray-900 px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition"
           >
             + Create Blog
           </Link>
@@ -140,12 +140,12 @@ export default function AdminBlogsPage() {
         <main className="flex-1 p-6">
           {loading ? (
             <div className="flex justify-center py-20">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 dark:border-white"></div>
+              <div className="animate-spin rounded-md h-12 w-12 border-b-2 border-gray-900 dark:border-white"></div>
             </div>
           ) : error ? (
             <div className="text-center text-red-500">{error}</div>
           ) : (
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="bg-white dark:bg-gray-800 rounded-md border border-gray-200 dark:border-gray-700 overflow-hidden">
               <table className="w-full text-sm text-left">
                 <thead className="bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
                   <tr>

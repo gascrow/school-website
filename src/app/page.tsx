@@ -6,7 +6,7 @@ import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
-import Pricing from "@/components/Pricing";
+
 import ProgramSection from "@/components/Program";
 import { Metadata } from "next";
 

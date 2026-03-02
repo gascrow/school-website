@@ -32,7 +32,7 @@ const testimonialData: Testimonial[] = [
   },
 ];
 
-{/* <div class="bg-gradient-to-r from-primary to-secondary p-6 text-white rounded-lg">
+{/* <div class="bg-gradient-to-r from-primary to-secondary p-6 text-white rounded-md">
   Konten dengan gradient dari primary ke secondary
 </div> */}
 
