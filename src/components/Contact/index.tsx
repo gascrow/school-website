@@ -7,7 +7,7 @@ const Contact = () => {
       title: "Self Learning",
       value: "self-learning",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-md p-4 md:p-6 bg-primary">
+        <div className="w-full overflow-hidden relative h-[26rem] md:h-100 rounded-md p-4 md:p-6 bg-primary">
           <div className="text-white">
             <h2 className="text-lg md:text-2xl font-bold mb-4">Self Learning</h2>
             <p className="text-white/90 text-sm md:text-base mb-6">Konten untuk menu Self Learning akan ditampilkan di sini.</p>
@@ -41,7 +41,7 @@ const Contact = () => {
       title: "Jadwal",
       value: "jadwal",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-md p-4 md:p-6 bg-primary">
+        <div className="w-full overflow-hidden relative h-[26rem] md:h-100 rounded-md p-4 md:p-6 bg-primary">
           <div className="text-white">
             <h2 className="text-lg md:text-2xl font-bold mb-4">Jadwal Pembelajaran</h2>
             <p className="text-white/90 text-sm md:text-base mb-6">Jadwal pembelajaran dan kegiatan akan ditampilkan di sini.</p>
@@ -74,7 +74,7 @@ const Contact = () => {
       title: "Modul",
       value: "modul",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-md p-4 md:p-6 bg-primary">
+        <div className="w-full overflow-hidden relative h-[26rem] md:h-100 rounded-md p-4 md:p-6 bg-primary">
           <div className="text-white">
             <h2 className="text-lg md:text-2xl font-bold mb-4">Modul Pembelajaran</h2>
             <p className="text-white/90 text-sm md:text-base mb-6">Modul-modul pembelajaran tersedia di sini.</p>
@@ -109,7 +109,7 @@ const Contact = () => {
       title: "Kurikulum",
       value: "kurikulum",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-md p-4 md:p-6 bg-primary">
+        <div className="w-full overflow-hidden relative h-[26rem] md:h-100 rounded-md p-4 md:p-6 bg-primary">
           <div className="text-white">
             <h2 className="text-lg md:text-2xl font-bold mb-4">Kurikulum</h2>
             <p className="text-white/90 text-sm md:text-base mb-6">Kurikulum pembelajaran sesuai standar nasional.</p>
@@ -142,7 +142,7 @@ const Contact = () => {
       title: "Jurnal",
       value: "jurnal",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-md p-4 md:p-6 bg-primary">
+        <div className="w-full overflow-hidden relative h-[26rem] md:h-100 rounded-md p-4 md:p-6 bg-primary">
           <div className="text-white">
             <h2 className="text-lg md:text-2xl font-bold mb-4">Jurnal Pembelajaran</h2>
             <p className="text-white/90 text-sm md:text-base mb-6">Catatan dan jurnal pembelajaran siswa.</p>
@@ -174,7 +174,7 @@ const Contact = () => {
       title: "Donasi",
       value: "donasi",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-md p-4 md:p-6 bg-primary">
+        <div className="w-full overflow-hidden relative h-[26rem] md:h-100 rounded-md p-4 md:p-6 bg-primary">
           <div className="text-white">
             <h2 className="text-lg md:text-2xl font-bold mb-4">Donasi</h2>
             <p className="text-white/90 text-sm md:text-base mb-6">Dukung pendidikan dengan berdonasi.</p>
@@ -206,9 +206,17 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="overflow-hidden bg-white py-16 md:py-15 lg:py-15">
-      <div className="container mx-10">
-        <div className="h-[24rem] md:h-[48rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-start justify-start">
+    <section id="contact" className="overflow-visible bg-white py-8 md:py-6 lg:py-2 pb-12 md:pb-6">
+      <div className="container">
+        {/* --- Section Header --- */}
+        <div className="flex items-center justify-between mb-2 pt-4">
+          <h2 className="text-2xl md:text-4xl font-extrabold text-black">
+            Akademik
+          </h2>
+        </div>
+        <div className="w-full h-1 bg-yellow rounded-full mb-8"></div>
+
+        <div className="h-[34rem] md:h-[36rem] [perspective:1000px] relative flex flex-col max-w-10xl mx-auto w-full items-start justify-start">
           <Tabs tabs={tabs} />
         </div>
       </div>

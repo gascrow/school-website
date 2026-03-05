@@ -38,12 +38,13 @@ export const Tabs = ({
 
   return (
     <>
-      <div
-        className={cn(
-          "flex flex-row items-center justify-start relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
-          containerClassName
-        )}
-      >
+      <div className="w-full flex justify-center">
+        <div
+          className={cn(
+            "flex flex-row items-center justify-center relative overflow-auto sm:overflow-visible no-visible-scrollbar bg-yellow rounded-md w-fit",
+            containerClassName
+          )}
+        >
         {propTabs.map((tab, idx) => (
           <button
             key={tab.title}
@@ -52,7 +53,7 @@ export const Tabs = ({
             }}
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
-            className={cn("relative px-4 py-2 rounded-full", tabClassName)}
+            className={cn("relative px-3 py-3 md:px-8 md:py-4 rounded-md text-sm md:text-base", tabClassName)}
             style={{
               transformStyle: "preserve-3d",
             }}
@@ -62,24 +63,28 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full ",
+                  "absolute inset-2 bg-primary rounded-md ",
                   activeTabClassName
                 )}
               />
             )}
 
-            <span className="relative block text-black dark:text-white">
+            <span className={cn(
+              "relative block font-bold",
+              active.value === tab.value ? "text-white" : "text-mitra"
+            )}>
               {tab.title}
             </span>
           </button>
         ))}
+        </div>
       </div>
       <FadeInDiv
         tabs={tabs}
         active={active}
         key={active.value}
         hovering={hovering}
-        className={cn("mt-32", contentClassName)}
+        className={cn("mt-10", contentClassName)}
       />
     </>
   );
@@ -107,12 +112,12 @@ export const FadeInDiv = ({
           layoutId={tab.value}
           style={{
             scale: 1 - idx * 0.1,
-            top: hovering ? idx * -50 : 0,
+            top: hovering ? idx * 30 : 0,
             zIndex: -idx,
             opacity: idx < 3 ? 1 - idx * 0.1 : 0,
           }}
           animate={{
-            y: isActive(tab) ? [0, 40, 0] : 0,
+            y: isActive(tab) ? [0, 10, 0] : 0,
           }}
           className={cn("w-full h-full absolute top-0 left-0", className)}
         >

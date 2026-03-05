@@ -4,6 +4,6 @@ export interface Program {
   designation: string;
   content: string;
   image: string;
-  star: number;
+
   url?: string;
 }

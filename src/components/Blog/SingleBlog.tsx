@@ -9,44 +9,33 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
       <div className="group shadow-one hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark relative overflow-hidden rounded-md bg-white duration-300">
         <Link
           href="/blog-details"
-          className="relative block aspect-37/22 w-full"
+          className="relative block aspect-[37/18] w-full  overflow-hidden group"
         >
-          <span className="bg-primary absolute top-6 right-6 z-20 inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-semibold text-white capitalize">
+          <span className="bg-white absolute bottom-6 left-6 z-20 inline-flex items-center justify-center rounded-md px-2 py-1 text-xs font-bold text-primary capitalize">
             {tags[0]}
           </span>
-          <Image src={image} alt="image" fill />
+          <Image src={image} alt="image" fill className="transition-transform duration-300 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300"></div>
         </Link>
-        <div className="p-6 sm:p-8 md:px-6 md:py-8 lg:p-8 xl:px-5 xl:py-8 2xl:p-8">
-          <h3>
-            <Link
-              href="/blog-details"
-              className="hover:text-primary dark:hover:text-primary mb-4 block text-xl font-bold text-black sm:text-2xl dark:text-white"
-            >
-              {title}
-            </Link>
-          </h3>
-          <p className="border-body-color/10 text-body-color mb-6 border-b pb-6 text-base font-medium dark:border-white/10">
-            {paragraph}
-          </p>
-          <div className="flex items-center">
-            <div className="border-body-color/10 mr-5 flex items-center border-r pr-5 xl:mr-3 xl:pr-3 2xl:mr-5 2xl:pr-5 dark:border-white/10">
-              <div className="mr-4">
-                <div className="relative h-10 w-10 overflow-hidden rounded-md">
-                </div>
-              </div>
-              <div className="w-full">
-                <h4 className="text-dark mb-1 text-sm font-medium dark:text-white">
-                </h4>
-              </div>
-            </div>
-            <div className="inline-block">
-              <h4 className="text-dark mb-1 text-sm font-medium dark:text-white">
-                Date
-              </h4>
-              <p className="text-body-color text-xs">{publishDate}</p>
-            </div>
-          </div>
+      </div>
+      
+      <div className="px-0 py-6 sm:py-8 md:py-8 lg:py-8 xl:py-2 2xl:py-8">
+        <h3 className="h-14 overflow-hidden">
+          <Link
+            href="/blog-details"
+            className="block text-md font-bold text-black sm:text-xl overflow-hidden text-ellipsis line-clamp-2 whitespace-normal"
+          >
+            {title}
+          </Link>
+        </h3>
+        <div className="inline-block">
+          <h4 className="text-dark mb-1 text-sm font-medium dark:text-white">
+          </h4> 
+          <p className="text-body-color font-bold text-md">{publishDate}</p>
         </div>
+        <p className="text-body-color mb-4 pb-6 text-base font-bold dark:border-white/10 line-clamp-2 h-12 overflow-hidden">
+          {paragraph}
+        </p>
       </div>
     </>
   );

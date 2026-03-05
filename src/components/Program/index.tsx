@@ -1,3 +1,5 @@
+"use client";
+
 import { Program } from "@/types/program";
 import SectionTitle from "../Common/SectionTitle";
 import SingleProgram from "./SingleProgram";
@@ -10,17 +12,15 @@ const programData: Program[] = [
     content:
       "Program pendidikan kesetaraan Paket A yang setara dengan Sekolah Dasar (SD), memberikan kesempatan bagi masyarakat yang belum sempat menyelesaikan pendidikan dasar untuk mendapatkan ijazah yang diakui secara nasional.",
     image: "/images/program/sd.jpg",
-    star: 5,
     url: "/program/paket-a",
   },
   {
     id: 2,
-    name: "Pendidikan Kesetaraan Paket B",
-    designation: "Setara SMP",
+    name: "Pendidikan Kesetaraan Paket ABC",
+    designation: "Setara SD,SMP dan SMA",
     content:
-      "Program pendidikan kesetaraan Paket B yang setara dengan Sekolah Menengah Pertama (SMP), dirancang untuk memberikan kesempatan belajar bagi masyarakat yang ingin melanjutkan pendidikan menengah pertama.",
+      "Program pendidikan kesetaraan Paket A yang setara dengan Sekolah Menengah Pertama (SMP), dirancang untuk memberikan kesempatan belajar bagi masyarakat yang ingin melanjutkan pendidikan menengah pertama.",
     image: "/images/program/smp.jpg",
-    star: 5,
     url: "/program/paket-b",
   },
   {
@@ -30,18 +30,19 @@ const programData: Program[] = [
     content:
       "Program pendidikan kesetaraan Paket C yang setara dengan Sekolah Menengah Atas (SMA), memberikan kesempatan bagi masyarakat untuk mendapatkan ijazah setara SMA yang dapat digunakan untuk melanjutkan pendidikan ke jenjang yang lebih tinggi.",
     image: "/images/program/sma.jpg",
-    star: 5,
     url: "/program/paket-c",
   },
 ];
 
 const ProgramSection = () => {
   return (
-    <section className="dark:bg-bg-color-dark bg-white p-6 text-white relative z-20 -mt-32 md:-mt-36 lg:-mt-40 py-16 md:py-20 lg:py-20">
+    <section className="dark:bg-bg-color-dark bg-white px-4 md:px-6 text-white relative z-20 py-10 md:py-20 lg:py-20">
       <div className="container">
-        <div className="grid grid-cols-1 gap-x-0 gap-y-0 md:grid-cols-2 lg:grid-cols-3">
-          {programData.map((program) => (
-            <SingleProgram key={program.id} program={program} />
+        <div className="-mt-32 md:-mt-44 lg:-mt-52 grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-y-0 lg:items-end">
+          {programData.map((program, index) => (
+            <div key={program.id} className={index === 1 ? "lg:-translate-y-15" : ""}>
+              <SingleProgram program={program} />
+            </div>
           ))}
         </div>
       </div>

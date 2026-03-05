@@ -1,5 +1,8 @@
+"use client";
+
 import { Program } from "@/types/program";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const SingleProgram = ({ program }: { program: Program }) => {
   const { name, content, designation, url } = program;
@@ -27,10 +30,16 @@ const SingleProgram = ({ program }: { program: Program }) => {
   };
 
   return (
-    <div className="w-full relative">
-      <div className={`shadow-two dark:bg-dark dark:shadow-three bg-white p-0 duration-300 lg:px-0 xl:px-0 relative z-30 -mt-20 md:-mt-24 lg:-mt-28 ${program.name.includes("Paket A") ? "rounded-tl-md" : program.name.includes("Paket C") ? "rounded-tr-md" : ""}`}>
+    <motion.div
+      className="w-full relative"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: (program.id - 1) * 0.15, ease: "easeOut" }}
+    >
+      <div className="shadow-two dark:bg-dark dark:shadow-three bg-white p-0 duration-300 lg:px-2 xl:px-0 relative z-30 rounded-md hover:-translate-y-2 transition-transform">
         {/* Header with Primary Color */}
-        <div className={`bg-primary text-white px-6 py-8 ${program.name.includes("Paket A") ? "rounded-tl-md" : program.name.includes("Paket C") ? "rounded-tr-md" : ""}`}>
+        <div className={`bg-primary text-white px-6 py-8 ${program.name.includes("Paket A") ? "rounded-tl-md rounded-tr-md" : program.name.includes("Paket C") ? "rounded-tr-md rounded-tl-md" : ""}`}>
           <div className="flex items-center space-x-3">
             <div className="flex-shrink-0">
               {getProgramIcon(name)}
@@ -75,7 +84,7 @@ const SingleProgram = ({ program }: { program: Program }) => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

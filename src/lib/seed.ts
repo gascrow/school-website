@@ -4,22 +4,26 @@ import bcrypt from "bcrypt";
 const prisma = new PrismaClient();
 
 async function main() {
-  // Hapus data lama (opsional)
-  await prisma.user.deleteMany();
+  // Buat / update akun admin default pada tabel `admins`
+  const defaultUsername = "admin";
+  const defaultEmail = "admin@mail.com";
+  const defaultPassword = "admin123";
+  const hashedPassword = await bcrypt.hash(defaultPassword, 10);
 
-  // Buat akun admin default
-  const adminData = {
-    username: "admin",
-    email: "admin@mail.com",
-    password: await bcrypt.hash("admin123", 10), // Password: admin123
-    role: "admin",
-  };
-
-  const admin = await prisma.user.create({
-    data: adminData,
+  const admin = await prisma.admin.upsert({
+    where: { username: defaultUsername },
+    update: {
+      email: defaultEmail,
+      password: hashedPassword,
+    },
+    create: {
+      username: defaultUsername,
+      email: defaultEmail,
+      password: hashedPassword,
+    },
   });
 
-  console.log("Admin account created successfully!");
+  console.log("Admin account upserted successfully!");
   console.log("Username:", admin.username);
   console.log("Email:", admin.email);
   console.log("Password: admin123 (default)");

@@ -118,37 +118,37 @@ const Header = () => {
                   className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-md px-2 py-1 focus:ring-1 lg:hidden"
                 >
                   <span
-                    className={`relative my-1 block h-0.5 w-[24px] bg-black transition-all duration-300 dark:bg-white ${
+                    className={`relative my-1 block h-0.5 w-[24px] transition-all duration-300 dark:bg-white ${
                       navbarOpen ? "top-[6px] rotate-45" : " "
-                    }`}
+                    } ${sticky ? "bg-black" : "bg-white"}`}
                   />
                   <span
-                    className={`relative my-1 block h-0.5 w-[24px] bg-black transition-all duration-300 dark:bg-white ${
+                    className={`relative my-1 block h-0.5 w-[24px] transition-all duration-300 dark:bg-white ${
                       navbarOpen ? "opacity-0" : " "
-                    }`}
+                    } ${sticky ? "bg-black" : "bg-white"}`}
                   />
                   <span
-                    className={`relative my-1 block h-0.5 w-[24px] bg-black transition-all duration-300 dark:bg-white ${
+                    className={`relative my-1 block h-0.5 w-[24px] transition-all duration-300 dark:bg-white ${
                       navbarOpen ? "top-[-7px] -rotate-45" : " "
-                    }`}
+                    } ${sticky ? "bg-black" : "bg-white"}`}
                   />
                 </button>
                 <nav
                   id="navbarCollapse"
-                  className={`navbar border-body-color/50 dark:border-body-color/20 dark:bg-dark absolute right-0 z-30 w-full h-screen bg-white px-6 py-8 lg:w-auto lg:h-auto lg:visible lg:static lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
+                  className={`navbar border-body-color/50 dark:border-body-color/20 dark:bg-dark absolute right-0 z-30 w-full max-h-[calc(100vh-5rem)] overflow-y-auto bg-white px-6 py-8 lg:w-auto lg:max-h-none lg:overflow-visible lg:visible lg:static lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
                     navbarOpen
                       ? "visibility top-full opacity-100"
                       : "invisible top-[120%] opacity-50"
                   }`}
                 >
-                  <ul className="block lg:flex lg:space-x-8 -ml-16">
+                  <ul className="block lg:flex lg:space-x-8">
 
 
                     {/* Tentang Kami */}
                     <li className="group relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                       <p
                         onClick={() => handleSubmenu(1)}
-                        className="relative z-10 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 
+                        className="relative z-10 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 
                         hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                       >
                         <span>Tentang Kami</span>
@@ -229,7 +229,7 @@ const Header = () => {
                     <li className="group relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                       <p
                         onClick={() => handleSubmenu(2)}
-                        className="relative z-20 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
+                        className="relative z-20 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                       >
                         <span>Program</span>
                         <span className="ml-2">
@@ -246,7 +246,7 @@ const Header = () => {
                       <div
                         className={`submenu z-50 dark:bg-dark bg-white
                           absolute top-full left-0 w-full
-                          lg:absolute lg:top-[70%] lg:left-[-156] lg:right-0 lg:w-screen lg:max-w-4xl
+                          lg:absolute lg:top-[70%] lg:left-[-156px] lg:right-0 lg:w-screen lg:max-w-4xl
                           lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-md lg:shadow-lg lg:p-8
                           lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible
                           lg:transition-all lg:duration-300
@@ -308,7 +308,7 @@ const Header = () => {
                     <li className="group relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                       <p
                         onClick={() => handleSubmenu(3)}
-                        className="relative z-20 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
+                        className="relative z-20 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                       >
                         <span>Informasi</span>
                         <span className="ml-2">
@@ -325,7 +325,7 @@ const Header = () => {
                       <div
                         className={`submenu z-50 dark:bg-dark bg-white
                           absolute top-full left-0 w-full
-                          lg:absolute lg:top-[70%] lg:left-[-276] lg:right-0 lg:w-screen lg:max-w-4xl
+                          lg:absolute lg:top-[70%] lg:left-[-276px] lg:right-0 lg:w-screen lg:max-w-4xl
                           lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-md lg:shadow-lg lg:p-8
                           lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible
                           lg:transition-all lg:duration-300
@@ -380,13 +380,13 @@ const Header = () => {
                     <li className="group relative">
                       <Link
                         href="/contact"
-                        className={`relative z-20 flex pt-2 pb-1 text-mitra text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-secondary after:opacity-0 after:transition-opacity after:duration-200 ${
+                        className={`relative z-20 flex pt-2 pb-1 text-mitra text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 ${
                           usePathName === "/contact"
                             ? "text-primary after:opacity-100 dark:text-white"
                             : "text-dark hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                         }`}
                       >
-                        Kontak
+                        Akademik
                       </Link>
                     </li>
                   </ul>
