@@ -1,8 +1,9 @@
 import { Metadata } from "next";
+import AdminShell from "@/components/Admin/AdminShell";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard | PKBM Intan",
-  description: "Admin dashboard for managing PKBM Intan content",
+  title: "Admin Dashboard | PKBM Kejuruan terbuka",
+  description: "Admin dashboard for managing PKBM Kejuruan terbuka content",
 };
 
 export default function AdminLayout({
@@ -11,8 +12,8 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <AdminShell>
       {children}
-    </div>
+    </AdminShell>
   );
 }

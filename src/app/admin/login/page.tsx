@@ -3,8 +3,8 @@ import Link from "next/link";
 import { authenticateAdmin } from "./actions";
 
 export const metadata: Metadata = {
-  title: "Admin Login | PKBM Intan",
-  description: "Admin login page for PKBM Intan dashboard",
+  title: "Admin Login | PKBM Kejuruan terbuka",
+  description: "Admin login page for PKBM Kejuruan terbuka",
 };
 
 export default function AdminLoginPage() {
@@ -20,7 +20,7 @@ export default function AdminLoginPage() {
           </p>
         </div>
         
-        <div className="bg-white dark:bg-gray-800 py-8 px-6 shadow-xl rounded-md border border-gray-200 dark:border-gray-700">
+        <div className="bg-white dark:bg-gray-800 py-8 px-6 shadow-xl rounded-lg border border-gray-200 dark:border-gray-700">
           <form action={authenticateAdmin} className="space-y-6">
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
@@ -32,7 +32,7 @@ export default function AdminLoginPage() {
                   name="username"
                   type="text"
                   required
-                  className="appearance-none relative block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-500 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 transition-colors duration-200"
+                  className="appearance-none relative block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-500 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 transition-colors duration-200"
                   placeholder="Masukkan username anda"
                 />
               </div>
@@ -48,7 +48,7 @@ export default function AdminLoginPage() {
                   name="password"
                   type="password"
                   required
-                  className="appearance-none relative block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-500 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 transition-colors duration-200"
+                  className="appearance-none relative block w-full px-3 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-500 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 transition-colors duration-200"
                   placeholder="Masukkan password anda"
                 />
               </div>
@@ -77,7 +77,7 @@ export default function AdminLoginPage() {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transform transition-all duration-200 hover:scale-105 shadow-lg"
+                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transform transition-all duration-200 hover:scale-105 shadow-lg"
               >
                 Masuk
               </button>
@@ -99,7 +99,7 @@ export default function AdminLoginPage() {
             <div className="mt-6">
               <Link
                 href="/"
-                className="w-full flex justify-center py-2 px-4 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+                className="w-full flex justify-center py-2 px-4 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
               >
                 Kembali ke Beranda
               </Link>

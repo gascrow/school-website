@@ -37,9 +37,9 @@ const SingleProgram = ({ program }: { program: Program }) => {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: (program.id - 1) * 0.15, ease: "easeOut" }}
     >
-      <div className="shadow-two dark:bg-dark dark:shadow-three bg-white p-0 duration-300 lg:px-2 xl:px-0 relative z-30 rounded-md hover:-translate-y-2 transition-transform">
+      <div className="shadow-two dark:bg-dark dark:shadow-three bg-white p-0 duration-300 lg:px-2 xl:px-0 relative z-30 rounded-lg hover:-translate-y-2 transition-transform">
         {/* Header with Primary Color */}
-        <div className={`bg-primary text-white px-6 py-8 ${program.name.includes("Paket A") ? "rounded-tl-md rounded-tr-md" : program.name.includes("Paket C") ? "rounded-tr-md rounded-tl-md" : ""}`}>
+        <div className={`bg-primary text-white px-6 py-8 ${program.name.includes("Paket A") ? "rounded-tl-lg rounded-tr-lg" : program.name.includes("Paket C") ? "rounded-tr-lg rounded-tl-lg" : ""}`}>
           <div className="flex items-center space-x-3">
             <div className="flex-shrink-0">
               {getProgramIcon(name)}
@@ -74,7 +74,7 @@ const SingleProgram = ({ program }: { program: Program }) => {
           <div className="mt-4">
             <Link 
               href={url}
-              className="inline-flex items-center   text-primary text-md font-medium rounded-md  transition-colors"
+              className="inline-flex items-center   text-primary text-md font-medium rounded-lg  transition-colors"
             >
               Selengkapnya
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

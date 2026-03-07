@@ -14,12 +14,15 @@ model Blog {
   id          Int      @id @default(autoincrement())
   title       String
   content     String
+  detail      String?
   excerpt     String?
   image       String?
+  images      String?
   authorName  String
   authorImage String?
   authorRole  String?
   tags        String?
+  archived    Boolean  @default(false)
   publishDate DateTime @default(now())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -55,4 +58,19 @@ model Admin {
   updatedAt DateTime @updatedAt
   
   @@map("admins")
+}
+
+model Akademik {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  category    String
+  tahunAjaran String
+  semester    String?
+  downloadUrl String
+  publishDate DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("akademiks")
 }

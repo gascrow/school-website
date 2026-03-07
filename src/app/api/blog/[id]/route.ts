@@ -36,29 +36,33 @@ export async function PUT(
 
   try {
     const body = await request.json();
-    const { title, content, excerpt, image, authorName, authorImage, authorRole, tags } = body;
+    const { title, content, detail, excerpt, image, images, authorName, authorImage, authorRole, tags, archived } = body;
+
+    const data: Record<string, any> = {};
+    if (title !== undefined) data.title = title;
+    if (content !== undefined) data.content = content;
+    if (detail !== undefined) data.detail = detail;
+    if (excerpt !== undefined) data.excerpt = excerpt;
+    if (image !== undefined) data.image = image;
+    if (images !== undefined) data.images = images;
+    if (authorName !== undefined) data.authorName = authorName;
+    if (authorImage !== undefined) data.authorImage = authorImage;
+    if (authorRole !== undefined) data.authorRole = authorRole;
+    if (tags !== undefined) data.tags = tags;
+    if (archived !== undefined) data.archived = archived;
 
     const blog = await prisma.blog.update({
       where: {
         id: parseInt(id),
       },
-      data: {
-        title,
-        content,
-        excerpt,
-        image,
-        authorName,
-        authorImage,
-        authorRole,
-        tags,
-      },
+      data,
     });
 
     return NextResponse.json(blog);
-  } catch (error) {
-    console.error("Error updating blog:", error);
+  } catch (error: any) {
+    console.error("Error updating blog:", error?.message || error);
     return NextResponse.json(
-      { error: "Failed to update blog" },
+      { error: error?.message || "Failed to update blog" },
       { status: 500 }
     );
   }

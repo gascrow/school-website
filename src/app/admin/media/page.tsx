@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function MediaPage() {
@@ -35,145 +34,99 @@ export default function MediaPage() {
     setLoading(false);
   };
 
-  const handleLogout = async () => {
-    try {
-      await fetch("/api/auth/logout", {
-        method: "POST",
-      });
-      window.location.href = "/admin/login";
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
-  };
-
   return (
-    <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900">
-      {/* Sidebar */}
-      <aside className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 hidden md:flex md:flex-col">
-        <div className="h-16 flex items-center px-6 border-b border-gray-200 dark:border-gray-700">
-          <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
-            PKBM Kejuruan Terbuka
-          </h1>
-        </div>
-
-        <nav className="flex-1 px-4 py-6 space-y-2">
-          <Link
-            href="/admin"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
-          >
-            Dashboard
-          </Link>
-
-          <Link
-            href="/admin/blogs"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
-          >
-            Blog Management
-          </Link>
-
-          <Link
-            href="/admin/media"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-md bg-gray-900 text-white dark:bg-white dark:text-gray-900"
-          >
-            Media Library
-          </Link>
-
-          <Link
-            href="/admin/analytics"
-            className="flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
-          >
-            Analytics
-          </Link>
-        </nav>
-
-        <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-          <button
-            onClick={handleLogout}
-            className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition"
-          >
-            Logout
-          </button>
-        </div>
-      </aside>
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Topbar */}
-        <header className="h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-6">
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">
             Media Library
           </h2>
-
-          <div className="flex items-center space-x-4">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="hidden md:block px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-white"
-            />
-            <div className="h-8 w-8 rounded-md bg-gray-300 dark:bg-gray-600" />
-          </div>
-        </header>
-
-        <main className="flex-1 p-6">
-          {/* Upload Section */}
-          <div className="mb-6">
-            <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-              Upload Image
-            </label>
-            <input
-              type="file"
-              onChange={handleUpload}
-              className="block w-full text-sm border border-gray-300 dark:border-gray-600 rounded-md cursor-pointer bg-gray-50 dark:bg-gray-700 dark:text-white p-2"
-            />
-            {loading && (
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Uploading...</p>
-            )}
-          </div>
-
-          {/* Media Grid */}
-          {media.length === 0 ? (
-            <p className="text-gray-500 dark:text-gray-400">No media uploaded yet.</p>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {media.map((item) => (
-                <div key={item.id} className="group relative cursor-pointer">
-                  <img
-                    src={item.url}
-                    alt={item.name || "Media file"}
-                    className="rounded-md object-cover w-full h-40 border-2 border-transparent group-hover:border-primary transition-colors"
-                    onError={(e) => {
-                      e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMDAgMTAwTDIwMCAyMDBIMHoiIGZpbGw9IiM5Q0E0QUYiLz4KPHBhdGggZD0iTTAgMEwyMDAgMjAwVjBIMHoiIGZpbGw9IiM5Q0E0QUYiLz4KPHRleHQgeD0iMTAwIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzZDN0E4QiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pgo8L3N2Zz4K";
-                    }}
-                  />
-
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 rounded-md transition-all flex items-center justify-center">
-                    <span className="text-white text-sm opacity-0 group-hover:opacity-100 bg-black bg-opacity-50 px-2 py-1 rounded">
-                      Select
-                    </span>
-                  </div>
-
-                  <button
-                    onClick={async (e) => {
-                      e.stopPropagation(); // Prevent image selection when clicking delete
-                      const confirmDelete = confirm("Delete this image?");
-                      if (!confirmDelete) return;
-
-                      await fetch(`/api/media/${item.id}`, {
-                        method: "DELETE",
-                      });
-
-                      fetchMedia();
-                    }}
-                    className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition"
-                  >
-                    Delete
-                  </button>
-                </div>
-              ))}
-            </div>
-          )}
-        </main>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+            {media.length} file
+          </p>
+        </div>
       </div>
+
+      {/* Upload */}
+      <div className="bg-white dark:bg-gray-900 border border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-6 text-center">
+        <label className="cursor-pointer">
+          <div className="flex flex-col items-center gap-2">
+            <div className="w-12 h-12 rounded-full bg-[#CA281E]/10 flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-[#CA281E]"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+            </div>
+            <p className="text-sm font-medium text-gray-900 dark:text-white">
+              Klik untuk upload gambar
+            </p>
+            <p className="text-xs text-gray-400 dark:text-gray-500">
+              PNG, JPG, WEBP
+            </p>
+          </div>
+          <input
+            type="file"
+            onChange={handleUpload}
+            className="hidden"
+            accept="image/*"
+          />
+        </label>
+        {loading && (
+          <div className="mt-3 flex items-center justify-center gap-2">
+            <div className="w-4 h-4 border-2 border-[#CA281E] border-t-transparent rounded-full animate-spin" />
+            <span className="text-sm text-gray-500">Uploading...</span>
+          </div>
+        )}
+      </div>
+
+      {/* Media Grid */}
+      {media.length === 0 ? (
+        <div className="text-center py-10 text-gray-400 dark:text-gray-500 text-sm">
+          Belum ada media. Upload gambar pertama Anda.
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {media.map((item) => (
+            <div
+              key={item.id}
+              className="group relative bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden"
+            >
+              <img
+                src={item.url}
+                alt={item.name || "Media file"}
+                className="w-full h-40 object-cover"
+                onError={(e) => {
+                  e.currentTarget.src =
+                    "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjEwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5Q0EzQUYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJbWFnZTwvdGV4dD4KPC9zdmc+";
+                }}
+              />
+              <button
+                onClick={async () => {
+                  if (!confirm("Hapus gambar ini?")) return;
+                  await fetch(`/api/media/${item.id}`, { method: "DELETE" });
+                  fetchMedia();
+                }}
+                className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white text-xs px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                Hapus
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

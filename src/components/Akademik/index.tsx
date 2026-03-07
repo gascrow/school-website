@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Tabs } from "../ui/tabs";
 
 interface AkademikItem {
   id: number;
@@ -48,7 +47,7 @@ function AkademikTabContent({
 
         {loading ? (
           <div className="flex justify-center py-10">
-            <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-lg animate-spin" />
           </div>
         ) : items.length === 0 ? (
           <p className="text-white/70 text-sm md:text-base">
@@ -108,6 +107,8 @@ function AkademikTabContent({
 }
 
 const Contact = () => {
+  const [activeTab, setActiveTab] = useState("self-learning");
+
   const tabs = [
     {
       title: "Self Learning",
@@ -245,23 +246,39 @@ const Contact = () => {
     },
   ];
 
+  const activeContent = tabs.find((t) => t.value === activeTab)?.content;
+
   return (
     <section
       id="contact"
-      className="overflow-visible bg-yellow py-8 md:py-6 lg:py-2 pb-12 md:pb-6"
+      className="overflow-visible bg-white py-8 md:py-6 lg:py-2 pb-12 md:pb-6"
     >
       <div className="container">
-        {/* --- Section Header --- */}
-        <div className="flex items-center justify-between mb-2 pt-4">
-          <h2 className="text-2xl md:text-4xl font-extrabold text-black">
+        {/* Yellow header card: title + tab navigation */}
+        <div className="bg-yellow rounded-lg px-6 py-4 flex flex-col md:flex-row items-center gap-4 mb-8">
+          <h2 className="text-2xl md:text-4xl font-extrabold text-gray-800 shrink-0 md:mr-4">
             Akademik
           </h2>
+          <div className="bg-white shadow rounded-lg flex flex-row items-center overflow-x-auto p-1 w-full md:w-auto">
+            {tabs.map((tab) => (
+              <button
+                key={tab.value}
+                onClick={() => setActiveTab(tab.value)}
+                className={
+                  "relative px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap transition-colors " +
+                  (activeTab === tab.value
+                    ? "bg-primary text-white"
+                    : "text-mitra hover:text-gray-700")
+                }
+              >
+                {tab.title}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="w-full h-1 bg-primary rounded-full mb-8"></div>
 
-        <div className="h-[34rem] md:h-[36rem] [perspective:1000px] relative flex flex-col max-w-10xl mx-auto w-full items-start justify-start">
-          <Tabs tabs={tabs} containerClassName="bg-white shadow-md" />
-        </div>
+        {/* Tab content */}
+        <div>{activeContent}</div>
       </div>
     </section>
   );

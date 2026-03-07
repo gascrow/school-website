@@ -1,9 +1,15 @@
 import { NextResponse, NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const { searchParams } = new URL(request.url);
+    const published = searchParams.get("published");
+
+    const where = published === "true" ? { archived: false } : {};
+
     const blogs = await prisma.blog.findMany({
+      where,
       orderBy: {
         createdAt: "desc",
       },
@@ -22,14 +28,16 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { title, content, excerpt, image, authorName, authorImage, authorRole, tags } = body;
+    const { title, content, detail, excerpt, image, images, authorName, authorImage, authorRole, tags } = body;
 
     const blog = await prisma.blog.create({
       data: {
         title,
         content,
+        detail,
         excerpt,
         image,
+        images,
         authorName,
         authorImage,
         authorRole,

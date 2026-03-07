@@ -26,7 +26,7 @@ const BlogDetailsPage = () => {
                   <div className="flex flex-wrap items-center">
                     <div className="mr-10 mb-5 flex items-center">
                       <div className="mr-4">
-                        <div className="relative h-10 w-10 overflow-hidden rounded-md">
+                        <div className="relative h-10 w-10 overflow-hidden rounded-lg">
                           <Image
                             src="/images/blog/author-02.png"
                             alt="author"
@@ -96,7 +96,7 @@ const BlogDetailsPage = () => {
                   <div className="mb-5">
                     <a
                       href="#0"
-                      className="bg-primary inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-semibold text-white"
+                      className="bg-primary inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold text-white"
                     >
                       Design
                     </a>
@@ -161,7 +161,7 @@ const BlogDetailsPage = () => {
                       Ligula ullamcorper malesuada proin
                     </li>
                   </ul>
-                  <div className="bg-primary/10 relative z-10 mb-10 overflow-hidden rounded-md p-8 md:p-9 lg:p-8 xl:p-9">
+                  <div className="bg-primary/10 relative z-10 mb-10 overflow-hidden rounded-lg p-8 md:p-9 lg:p-8 xl:p-9">
                     <p className="text-body-color text-center text-base font-medium italic">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod incididunt utionals labore et dolore magna

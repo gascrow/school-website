@@ -66,6 +66,7 @@ const Header = () => {
   };
 
   const usePathName = usePathname();
+  const isBlogPage = /^\/blog(\/|$)/.test(usePathName);
 
   return (
     <>
@@ -76,7 +77,7 @@ const Header = () => {
       
       <header
         className={`header h-20 top-0 left-0 z-50 flex w-full items-center ${
-          sticky
+          sticky || isBlogPage
             ? "dark:bg-black dark:shadow-sticky-dark shadow-sticky fixed z-9999 bg-white backdrop- transition"
             : "fixed bg-transparant"
         }`}
@@ -115,22 +116,22 @@ const Header = () => {
                   onClick={navbarToggleHandler}
                   id="navbarToggler"
                   aria-label="Mobile Menu"
-                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-md px-2 py-1 focus:ring-1 lg:hidden"
+                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-lg px-2 py-1 focus:ring-1 lg:hidden"
                 >
                   <span
                     className={`relative my-1 block h-0.5 w-[24px] transition-all duration-300 dark:bg-white ${
                       navbarOpen ? "top-[6px] rotate-45" : " "
-                    } ${sticky ? "bg-black" : "bg-white"}`}
+                    } ${sticky || isBlogPage ? "bg-black" : "bg-white"}`}
                   />
                   <span
                     className={`relative my-1 block h-0.5 w-[24px] transition-all duration-300 dark:bg-white ${
                       navbarOpen ? "opacity-0" : " "
-                    } ${sticky ? "bg-black" : "bg-white"}`}
+                    } ${sticky || isBlogPage ? "bg-black" : "bg-white"}`}
                   />
                   <span
                     className={`relative my-1 block h-0.5 w-[24px] transition-all duration-300 dark:bg-white ${
                       navbarOpen ? "top-[-7px] -rotate-45" : " "
-                    } ${sticky ? "bg-black" : "bg-white"}`}
+                    } ${sticky || isBlogPage ? "bg-black" : "bg-white"}`}
                   />
                 </button>
                 <nav
@@ -167,7 +168,7 @@ const Header = () => {
                         className={`submenu z-50 dark:bg-dark bg-white
                           absolute top-full left-0 w-full
                           lg:absolute lg:top-[70%] lg:left-0 lg:right-0 lg:w-screen lg:max-w-4xl
-                          lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-md lg:shadow-lg lg:p-8
+                          lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-lg lg:shadow-lg lg:p-8
                           lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible
                           lg:transition-all lg:duration-300
                           ${openIndex === 1 ? "block" : "hidden"}
@@ -247,7 +248,7 @@ const Header = () => {
                         className={`submenu z-50 dark:bg-dark bg-white
                           absolute top-full left-0 w-full
                           lg:absolute lg:top-[70%] lg:left-[-156px] lg:right-0 lg:w-screen lg:max-w-4xl
-                          lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-md lg:shadow-lg lg:p-8
+                          lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-lg lg:shadow-lg lg:p-8
                           lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible
                           lg:transition-all lg:duration-300
                           ${openIndex === 2 ? "block" : "hidden"}
@@ -326,7 +327,7 @@ const Header = () => {
                         className={`submenu z-50 dark:bg-dark bg-white
                           absolute top-full left-0 w-full
                           lg:absolute lg:top-[70%] lg:left-[-276px] lg:right-0 lg:w-screen lg:max-w-4xl
-                          lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-md lg:shadow-lg lg:p-8
+                          lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-lg lg:shadow-lg lg:p-8
                           lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible
                           lg:transition-all lg:duration-300
                           ${openIndex === 3 ? "block" : "hidden"}
@@ -407,7 +408,7 @@ const Header = () => {
                           href={social.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="relative z-10 w-full h-full flex items-center justify-center rounded-md bg-gray-200 overflow-hidden transition-all duration-300"
+                          className="relative z-10 w-full h-full flex items-center justify-center rounded-lg bg-gray-200 overflow-hidden transition-all duration-300"
                           aria-label={social.label}
                         >
                           {/* Glass fill effect - rectangular inside circular button */}

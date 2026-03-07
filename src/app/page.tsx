@@ -1,6 +1,6 @@
 import Blog from "@/components/Blog";
 import ScrollUp from "@/components/Common/ScrollUp";
-import Contact from "@/components/Contact";
+import Contact from "@/components/Akademik";
 import Hero from "@/components/Hero";
 
 import ProgramSection from "@/components/Program";
