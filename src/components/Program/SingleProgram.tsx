@@ -4,80 +4,70 @@ import { Program } from "@/types/program";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const getProgramIcon = (programName: string) => {
+  if (programName === "LSP") {
+    return (
+      <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+      </svg>
+    );
+  } else if (programName === "PKBM") {
+    return (
+      <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    );
+  } else {
+    return (
+      <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    );
+  }
+};
+
 const SingleProgram = ({ program }: { program: Program }) => {
   const { name, content, designation, url } = program;
 
-  const getProgramIcon = (programName: string) => {
-    if (programName.includes("Paket A")) {
-      return (
-        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-      );
-    } else if (programName.includes("Paket B")) {
-      return (
-        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
-        </svg>
-      );
-    } else {
-      return (
-        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-      );
-    }
-  };
-
   return (
     <motion.div
-      className="w-full relative"
+      className="w-full h-full"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: (program.id - 1) * 0.15, ease: "easeOut" }}
     >
-      <div className="shadow-two dark:bg-dark dark:shadow-three bg-white p-0 duration-300 lg:px-2 xl:px-0 relative z-30 rounded-lg hover:-translate-y-2 transition-transform">
-        {/* Header with Primary Color */}
-        <div className={`bg-primary text-white px-6 py-8 ${program.name.includes("Paket A") ? "rounded-tl-lg rounded-tr-lg" : program.name.includes("Paket C") ? "rounded-tr-lg rounded-tl-lg" : ""}`}>
-          <div className="flex items-center space-x-3">
-            <div className="flex-shrink-0">
-              {getProgramIcon(name)}
-            </div>
-            <div>
-              <h3 className="text-lg font-bold lg:text-base xl:text-lg">
-                {name}
-              </h3>
-              <p className="text-sm opacity-90 font-medium">{designation}</p>
-            </div>
-          </div>
+      <div className="flex flex-col items-center text-center rounded-xl bg-white shadow-lg dark:bg-dark dark:shadow-three p-8 hover:-translate-y-2 transition-transform duration-300">
+        {/* Icon */}
+        <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+          {getProgramIcon(name)}
         </div>
-        
-        {/* Image Section - Full width image attached to header */}
-        <div className="p-0">
-          <Link href={url || "#"}>
-            <img 
-              src={program.image} 
-              alt={name}
-              className="w-full h-auto cursor-pointer hover:opacity-90 transition-opacity"
-            />
-          </Link>
-        </div>
-      </div>
-      
-      {/* Description Section - Sejajar dengan card, padding top */}
-      <div className="dark:bg-dark pt-4">
-        <p className="text-md text-gray-600 dark:text-gray-300 leading-relaxed">
+
+        {/* Title */}
+        <h3 className="mb-1 text-2xl font-bold text-black dark:text-white">
+          {name}
+        </h3>
+        <p className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">
+          {designation}
+        </p>
+
+        {/* Divider */}
+        <div className="mb-5 h-px w-full bg-stroke dark:bg-dark-3"></div>
+
+        {/* Description */}
+        <p className="flex-1 text-base text-body-color leading-relaxed dark:text-body-color-dark">
           {content}
         </p>
+
+        {/* CTA */}
         {url && (
-          <div className="mt-4">
-            <Link 
+          <div className="mt-6">
+            <Link
               href={url}
-              className="inline-flex items-center   text-primary text-md font-medium rounded-lg  transition-colors"
+              className="inline-flex items-center gap-2 rounded-md border border-primary px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors duration-200"
             >
               Selengkapnya
-              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>

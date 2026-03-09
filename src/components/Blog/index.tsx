@@ -40,7 +40,7 @@ const Blog: React.FC = () => {
         <div className="container px-4 md:px-6 lg:px-25">
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-2xl md:text-4xl font-extrabold text-black dark:text-white">
-              Rilis Berita
+              Berita Terbaru 
             </h2>
           </div>
           <div className="w-28 md:w-40 h-1 bg-yellow rounded-full mb-8"></div>
@@ -84,7 +84,7 @@ const Blog: React.FC = () => {
         {/* --- Section Header --- */}
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-2xl md:text-4xl font-extrabold text-black dark:text-white">
-            Rilis Berita
+            Berita Terbaru
           </h2>
           <Link
             href="/blog"

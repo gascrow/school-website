@@ -394,8 +394,18 @@ const Header = () => {
                 </nav>
               </div>
               <div className="flex items-center justify-end pr-16 lg:pr-0 space-x-2">
-                {/* Social Media Buttons - Desktop Only */}
-                <div className="hidden lg:flex space-x-2">
+                {/* Contact Button - Desktop Only */}
+                <div className="hidden lg:flex">
+                  <Link
+                    href="/contact"
+                    className="rounded-md bg-primary px-6 py-2.5 text-sm font-semibold text-white hover:bg-opacity-90 transition-all"
+                  >
+                    Contact
+                  </Link>
+                </div>
+
+                {/* Social Media Buttons - Desktop Only (disabled) */}
+                {/* <div className="hidden lg:flex space-x-2">
                   {[
                     { href: "https://instagram.com", label: "Instagram", icon: Instagram, bg: "bg-pink-500" },
                     { href: "https://facebook.com", label: "Facebook", icon: Facebook, bg: "bg-blue-600" },
@@ -411,18 +421,16 @@ const Header = () => {
                           className="relative z-10 w-full h-full flex items-center justify-center rounded-lg bg-gray-200 overflow-hidden transition-all duration-300"
                           aria-label={social.label}
                         >
-                          {/* Glass fill effect - rectangular inside circular button */}
-                          <div className={`absolute inset-0 ${social.bg} scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-500 ease-out rounded-0`}></div>
+                          <div className={`absolute inset-0 ${social.bg} scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-500 ease-out rounded-lg`}></div>
                           <Icon className="h-5= w-5 text-gray-700 group-hover:text-white relative z-20 transition-colors duration-300" />
                         </Link>
-                        {/* Tooltip */}
                         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-[-80] px-3 py-1 bg-black text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
                           {social.label === "WhatsApp" ? "WhatsApp" : `${social.label}`}
                         </div>
                       </div>
                     );
                   })}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
