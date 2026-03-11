@@ -1,6 +1,14 @@
 import { NextResponse, NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
 
+function normalizeBlogText(value: unknown): unknown {
+  if (typeof value !== "string") return value;
+
+  return value
+    .replace(/&(nbsp|#160);/gi, " ")
+    .replace(/\u00A0/g, " ");
+}
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -30,12 +38,16 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { title, content, detail, excerpt, image, images, authorName, authorImage, authorRole, tags } = body;
 
+    const normalizedContent = normalizeBlogText(content) as string;
+    const normalizedDetail = normalizeBlogText(detail) as string | null | undefined;
+    const normalizedExcerpt = normalizeBlogText(excerpt) as string | null | undefined;
+
     const blog = await prisma.blog.create({
       data: {
         title,
-        content,
-        detail,
-        excerpt,
+        content: normalizedContent,
+        detail: normalizedDetail,
+        excerpt: normalizedExcerpt,
         image,
         images,
         authorName,

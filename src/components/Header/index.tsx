@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Instagram, Facebook, MessageCircle } from "lucide-react";
 
 const Header = () => {
   // Navbar toggle
@@ -66,7 +65,22 @@ const Header = () => {
   };
 
   const usePathName = usePathname();
-  const isBlogPage = /^\/blog(\/|$)/.test(usePathName);
+  const solidHeaderPrefixes = [
+    "/blog",
+    "/profil-kami",
+    "/tenaga-kependidikan",
+    "/struktur-organisasi",
+    "/paket-setara-sd",
+    "/paket-setara-smp",
+    "/paket-setara-sma",
+    "/berita-terbaru",
+    "/dokumentasi",
+  ];
+
+  const isSolidHeaderPage = solidHeaderPrefixes.some(
+    (prefix) =>
+      usePathName === prefix || usePathName.startsWith(`${prefix}/`)
+  );
 
   return (
     <>
@@ -77,7 +91,7 @@ const Header = () => {
       
       <header
         className={`header h-20 top-0 left-0 z-50 flex w-full items-center ${
-          sticky || isBlogPage
+          sticky || isSolidHeaderPage
             ? "dark:bg-black dark:shadow-sticky-dark shadow-sticky fixed z-9999 bg-white backdrop- transition"
             : "fixed bg-transparant"
         }`}
@@ -86,7 +100,7 @@ const Header = () => {
       >
         <div className="container">
           <div className="relative -mx-2 flex items-center justify-between">
-            <div className="w-60 max-w-full px-4 xl:mr-12">
+            <div className="w-60 max-w-full px-4 xl:mr-[-20]">
               <Link
                 href="/"
                 className={`header-logo block w-full ${
@@ -121,17 +135,17 @@ const Header = () => {
                   <span
                     className={`relative my-1 block h-0.5 w-[24px] transition-all duration-300 dark:bg-white ${
                       navbarOpen ? "top-[6px] rotate-45" : " "
-                    } ${sticky || isBlogPage ? "bg-black" : "bg-white"}`}
+                    } ${sticky || isSolidHeaderPage ? "bg-black" : "bg-white"}`}
                   />
                   <span
                     className={`relative my-1 block h-0.5 w-[24px] transition-all duration-300 dark:bg-white ${
                       navbarOpen ? "opacity-0" : " "
-                    } ${sticky || isBlogPage ? "bg-black" : "bg-white"}`}
+                    } ${sticky || isSolidHeaderPage ? "bg-black" : "bg-white"}`}
                   />
                   <span
                     className={`relative my-1 block h-0.5 w-[24px] transition-all duration-300 dark:bg-white ${
                       navbarOpen ? "top-[-7px] -rotate-45" : " "
-                    } ${sticky || isBlogPage ? "bg-black" : "bg-white"}`}
+                    } ${sticky || isSolidHeaderPage ? "bg-black" : "bg-white"}`}
                   />
                 </button>
                 <nav
@@ -142,7 +156,7 @@ const Header = () => {
                       : "invisible opacity-0 pointer-events-none"
                   }`}
                 >
-                  <ul className="block lg:flex lg:space-x-8">
+                  <ul className="block lg:flex lg:space-x-6">
 
 
                     {/* Tentang Kami */}
@@ -166,7 +180,7 @@ const Header = () => {
                       <div
                         className={`submenu z-50 dark:bg-dark bg-white
                           absolute top-full left-0 w-full
-                          lg:absolute lg:top-[70%] lg:left-0 lg:right-0 lg:w-screen lg:max-w-4xl
+                          lg:absolute lg:top-[70%] lg:left-[-8] lg:right-0 lg:w-screen lg:max-w-4xl
                           lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-lg lg:shadow-lg lg:p-8
                           lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible
                           lg:transition-all lg:duration-300
@@ -217,7 +231,7 @@ const Header = () => {
                             />
                             <div>
                               <Link
-                                href="/about"
+                                href="/profil-kami"
                                 className="block text-primary dark:text-white font-bold mb-3 hover:underline hover:underline-offset-2 hover:decoration-[1px] hover:decoration-primary"
                               >
                                 Profil Kami
@@ -332,7 +346,7 @@ const Header = () => {
                       <div
                         className={`submenu z-50 dark:bg-dark bg-white
                           absolute top-full left-0 w-full
-                          lg:absolute lg:top-[70%] lg:left-[-276px] lg:right-0 lg:w-screen lg:max-w-4xl
+                          lg:absolute lg:top-[70%] lg:left-[-268px] lg:right-0 lg:w-screen lg:max-w-4xl
                           lg:mt-4 lg:bg-white lg:border lg:border-gray-200 lg:rounded-lg lg:shadow-lg lg:p-8
                           lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible
                           lg:transition-all lg:duration-300
@@ -386,7 +400,7 @@ const Header = () => {
                     {/* Kontak */}
                     <li className="group relative">
                       <Link
-                        href="/contact"
+                        href="/#akademik"
                         className={`relative z-20 flex pt-2 pb-1 text-mitra text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-0 lg:after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 ${
                           usePathName === "/contact"
                             ? "text-primary after:opacity-100 dark:text-white"

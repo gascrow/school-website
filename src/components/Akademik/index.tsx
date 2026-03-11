@@ -280,8 +280,8 @@ const Contact = () => {
 
   return (
     <section
-      id="contact"
-      className="overflow-visible bg-white py-8 md:py-6 lg:py-2 pb-12 md:pb-6"
+      id="akademik"
+      className="scroll-mt-24 overflow-visible bg-white py-8 md:py-6 lg:py-2 pb-12 md:pb-6"
     >
       <div className="container">
         {/* Yellow header card: title + tab navigation */}

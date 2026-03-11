@@ -1,6 +1,14 @@
 import { NextResponse, NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
 
+function normalizeBlogText(value: unknown): unknown {
+  if (typeof value !== "string") return value;
+
+  return value
+    .replace(/&(nbsp|#160);/gi, " ")
+    .replace(/\u00A0/g, " ");
+}
+
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -40,9 +48,9 @@ export async function PUT(
 
     const data: Record<string, any> = {};
     if (title !== undefined) data.title = title;
-    if (content !== undefined) data.content = content;
-    if (detail !== undefined) data.detail = detail;
-    if (excerpt !== undefined) data.excerpt = excerpt;
+    if (content !== undefined) data.content = normalizeBlogText(content);
+    if (detail !== undefined) data.detail = normalizeBlogText(detail);
+    if (excerpt !== undefined) data.excerpt = normalizeBlogText(excerpt);
     if (image !== undefined) data.image = image;
     if (images !== undefined) data.images = images;
     if (authorName !== undefined) data.authorName = authorName;

@@ -34,6 +34,12 @@ interface BlogListItem {
   createdAt: string;
 }
 
+function normalizeArticleText(value: string): string {
+  return value
+    .replace(/&(nbsp|#160);/gi, " ")
+    .replace(/\u00A0/g, " ");
+}
+
 const BlogDetailPage = () => {
   const params = useParams();
   const id = params.id as string;
@@ -117,7 +123,7 @@ const BlogDetailPage = () => {
   });
 
   // Use detail field if available, otherwise fall back to content
-  const articleContent = blog.detail || blog.content;
+  const articleContent = normalizeArticleText(blog.detail || blog.content);
   const isHtml = /<[a-z][\s\S]*>/i.test(articleContent);
 
   // Parse gallery images

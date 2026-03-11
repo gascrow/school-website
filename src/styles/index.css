@@ -186,7 +186,17 @@
 
 .blog-content {
   overflow-wrap: break-word;
-  word-break: break-word;
+  word-break: normal;
+  hyphens: none;
+}
+.blog-content .ql-align-center {
+  text-align: center;
+}
+.blog-content .ql-align-right {
+  text-align: right;
+}
+.blog-content .ql-align-justify {
+  text-align: justify;
 }
 .blog-content p {
   color: #000;
