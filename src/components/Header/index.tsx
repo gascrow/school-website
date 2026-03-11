@@ -136,10 +136,10 @@ const Header = () => {
                 </button>
                 <nav
                   id="navbarCollapse"
-                  className={`navbar border-body-color/50 dark:border-body-color/20 dark:bg-dark absolute right-0 z-30 w-full max-h-[calc(100vh-5rem)] overflow-y-auto bg-white px-6 py-8 lg:w-auto lg:max-h-none lg:overflow-visible lg:visible lg:static lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
+                  className={`navbar dark:bg-dark fixed top-[80px] left-0 right-0 bottom-0 z-40 overflow-y-auto bg-white px-6 py-8 transition-all duration-300 lg:static lg:z-auto lg:overflow-visible lg:!bg-transparent lg:p-0 lg:opacity-100 lg:visible lg:pointer-events-auto lg:bottom-auto lg:top-auto ${
                     navbarOpen
-                      ? "visibility top-full opacity-100"
-                      : "invisible top-[120%] opacity-50"
+                      ? "visible opacity-100 pointer-events-auto"
+                      : "invisible opacity-0 pointer-events-none"
                   }`}
                 >
                   <ul className="block lg:flex lg:space-x-8">
@@ -149,8 +149,7 @@ const Header = () => {
                     <li className="group relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                       <p
                         onClick={() => handleSubmenu(1)}
-                        className="relative z-10 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 
-                        hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
+                        className="relative z-10 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-0 lg:after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                       >
                         <span>Tentang Kami</span>
                         <span className="ml-2">
@@ -209,6 +208,13 @@ const Header = () => {
 
                           {/* Kolom 2: Tentang Kami */}
                           <div className="space-y-8">
+                            <Image
+                              src="/images/logo/PKBM-KT.png"
+                              alt="logo"
+                              width={80}
+                              height={15}
+                              className="w-50 h-auto dark:hidden"
+                            />
                             <div>
                               <Link
                                 href="/about"
@@ -230,7 +236,7 @@ const Header = () => {
                     <li className="group relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                       <p
                         onClick={() => handleSubmenu(2)}
-                        className="relative z-20 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
+                        className="relative z-20 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-0 lg:after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                       >
                         <span>Program</span>
                         <span className="ml-2">
@@ -264,10 +270,10 @@ const Header = () => {
                                 href="/paket-setara-sd"
                                 className="block text-primary dark:text-white font-bold mb-3 hover:underline hover:underline-offset-2 hover:decoration-[1px] hover:decoration-primary"
                               >
-                                Program Paket A
+                                Sertifikasi
                               </Link>
                               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                                Program pendidikan setara Sekolah Dasar (SD) yang dirancang khusus untuk peserta didik yang membutuhkan pendidikan dasar dalam format yang fleksibel dan terstruktur.
+                                Program sertifikasi yang dirancang untuk meningkatkan kompetensi dan keterampilan peserta didik dalam berbagai bidang kejuruan.
                               </p>
                             </div>
                           </div>
@@ -279,10 +285,10 @@ const Header = () => {
                                 href="/paket-setara-smp"
                                 className="block text-primary dark:text-white font-bold mb-3 hover:underline hover:underline-offset-2 hover:decoration-[1px] hover:decoration-primary"
                               >
-                                Program Paket B
+                                Kejar Paket
                               </Link>
                               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                                Program pendidikan setara Sekolah Menengah Pertama (SMP) yang memberikan kesempatan bagi peserta didik untuk melanjutkan pendidikan menengah pertama secara fleksibel.
+                                Program pendidikan kejar paket yang memberikan kesempatan kepada peserta didik untuk menyelesaikan pendidikan formal dengan metode pembelajaran yang fleksibel dan adaptif.
                               </p>
                             </div>
                           </div>
@@ -294,10 +300,10 @@ const Header = () => {
                                 href="/paket-setara-sma"
                                 className="block text-primary dark:text-white font-bold mb-3 hover:underline hover:underline-offset-2 hover:decoration-[1px] hover:decoration-primary"
                               >
-                                Program Paket C
+                                Pelatihan
                               </Link>
                               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                                Program pendidikan setara Sekolah Menengah Atas (SMA) yang memungkinkan peserta didik menyelesaikan pendidikan menengah atas dengan metode pembelajaran yang adaptif.
+                                Program pelatihan yang dirancang untuk meningkatkan kompetensi dan keterampilan peserta didik dalam berbagai bidang kejuruan.
                               </p>
                             </div>
                           </div>
@@ -309,7 +315,7 @@ const Header = () => {
                     <li className="group relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                       <p
                         onClick={() => handleSubmenu(3)}
-                        className="relative z-20 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
+                        className="relative z-20 text-mitra flex cursor-pointer items-center justify-between pt-2 pb-1 text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-0 lg:after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"
                       >
                         <span>Informasi</span>
                         <span className="ml-2">
@@ -381,7 +387,7 @@ const Header = () => {
                     <li className="group relative">
                       <Link
                         href="/contact"
-                        className={`relative z-20 flex pt-2 pb-1 text-mitra text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 ${
+                        className={`relative z-20 flex pt-2 pb-1 text-mitra text-md font-semibold transition-colors duration-200 lg:mr-0 lg:inline-flex lg:px-0 lg:py-8 after:content-[''] after:absolute after:left-0 after:bottom-0 lg:after:bottom-[12px] after:h-[2px] after:w-full after:bg-yellow after:opacity-0 after:transition-opacity after:duration-200 ${
                           usePathName === "/contact"
                             ? "text-primary after:opacity-100 dark:text-white"
                             : "text-dark hover:text-primary hover:after:opacity-100 group-hover:text-primary group-hover:after:opacity-100 dark:text-white/70 dark:hover:text-white"

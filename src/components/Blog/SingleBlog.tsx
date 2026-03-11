@@ -20,10 +20,10 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
       </div>
       
       <div className="px-0 py-6 sm:py-8 md:py-8 lg:py-8 xl:py-2 2xl:py-8">
-        <h3 className="h-14 overflow-hidden">
+        <h3>
           <Link
             href={`/blog/${id}`}
-            className="block text-md font-bold text-black sm:text-xl overflow-hidden text-ellipsis line-clamp-2 whitespace-normal"
+            className="text-md font-bold text-black sm:text-xl line-clamp-2"
           >
             {title}
           </Link>

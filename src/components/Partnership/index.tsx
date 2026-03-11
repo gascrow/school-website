@@ -57,13 +57,13 @@ const cards: PartnerCard[] = [
 const PartnershipCard = memo(
   ({ card, index }: { card: PartnerCard; index: number }) => (
     <div
-      className="sticky top-8 h-screen w-full flex items-center justify-center px-4 py-6"
+      className="sticky top-8 min-h-screen w-full flex items-center justify-center px-4 py-6"
       style={{ zIndex: index + 1 }}
     >
-      <div className="w-full max-w-6xl h-[65vh] max-h-[500px] flex flex-col lg:flex-row items-stretch rounded-3xl shadow-2xl overflow-hidden bg-white border border-gray-100 transition-all duration-500 hover:-translate-y-1 group relative">
+      <div className="w-full max-w-6xl flex flex-col lg:flex-row lg:h-[65vh] lg:max-h-[500px] items-stretch rounded-3xl shadow-2xl overflow-hidden bg-white border border-gray-100 transition-all duration-500 hover:-translate-y-1 group relative">
 
         {/* Left — content */}
-        <div className="w-full lg:w-7/12 flex flex-col justify-between p-8 md:p-10 lg:p-14">
+        <div className="w-full lg:w-7/12 flex flex-col justify-between p-5 sm:p-7 md:p-10 lg:p-14">
           <div>
             <span className="inline-block px-3 py-1 text-xs font-bold rounded-full mb-5 text-white bg-primary">
               {card.tag}
@@ -93,7 +93,7 @@ const PartnershipCard = memo(
         </div>
 
         {/* Right — image */}
-        <div className="relative w-full lg:w-5/12 h-48 lg:h-full overflow-hidden">
+        <div className="relative w-full lg:w-5/12 h-56 sm:h-64 lg:h-full overflow-hidden">
           <img
             src={card.image}
             alt={card.subtitle}

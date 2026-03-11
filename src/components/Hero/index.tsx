@@ -14,9 +14,9 @@ const Hero = () => {
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div className="mx-auto max-w-[780px] text-center">
-                <h1 className="mb-0 text-8xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+                <h1 className="mb-4 text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
                   Kejuruan Terbuka,{" "} <br />
-                  <span className="text-primary text-5xl">Berdaya di Mana Saja</span>
+                  <span className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Berdaya di Mana Saja</span>
                 </h1>
                 <p className="mb-8 text-base leading-relaxed text-white/90 md:text-lg">
                   Akses pendidikan kesetaraan dan kompetensi kerja dalam satu sistem belajar yang fleksibel,relevan, dan diakui nasional.

@@ -7,55 +7,19 @@ const Footer = () => {
     <>
       <footer className="relative z-10 bg-primary pt-16 dark:bg-gray-dark md:pt-15 lg:pt-0">
         <div className="w-full mx-0 px-0">
-          <div className="-mx-0 flex flex-col md:flex-row flex-wrap">
-            <div className="w-full px-0 md:w-2/3 lg:w-8/12 order-2 md:order-1">
-              <div className="h-full w-full">
-                <div className="relative h-[250px] w-full overflow-hidden">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.685346444431!2d119.4115753748247!3d-5.145329996153429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf1d725356238f%3A0x277d52d7dd0b6d26!2sPKBM%20Kejuruan%20Terbuka!5e0!3m2!1sid!2sid!4v1741171234567!5m2!1sid!2sid"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="PKBM Kejuruan Terbuka Location Map"
-                    className="absolute inset-0 w-full h-full"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-            <div className="w-full px-0 md:w-1/3 lg:w-4/12 order-1 md:order-2">
-              <div className="h-full w-full">
-                <div className="bg-black h-[250px] flex flex-col items-center justify-center px-6">
-                  <div className="mb-5">
-                    <Image
-                      src="/images/logo/pkbm-kt-white.png"
-                      alt="PKBM Kejuruan Terbuka Logo"
-                      width={100}
-                      height={16}
-                      className="mx-auto"
-                    />
-                  </div>
-                  <h3 className="text-white font-bold text-sm mb-3 tracking-wide">
-                    PKBM Kejuruan Terbuka
-                  </h3>
-                  <div className="space-y-1.5 text-gray-400 text-xs text-center leading-relaxed">
-                    <p>Jl. Poros Malino No. 123</p>
-                    <p>Gowa, Sulawesi Selatan</p>
-                    <div className="pt-2 space-y-1">
-                      <p className="flex items-center justify-center gap-1.5">
-                        <svg className="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                        (0411) 123-4567
-                      </p>
-                      <p className="flex items-center justify-center gap-1.5">
-                        <svg className="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                        info@pkbmkt.edu.id
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div className="w-full">
+            <div className="relative h-[300px] w-full overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.685346444431!2d119.4115753748247!3d-5.145329996153429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf1d725356238f%3A0x277d52d7dd0b6d26!2sPKBM%20Kejuruan%20Terbuka!5e0!3m2!1sid!2sid!4v1741171234567!5m2!1sid!2sid"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="PKBM Kejuruan Terbuka Location Map"
+                className="absolute inset-0 w-full h-full"
+              ></iframe>
             </div>
           </div>
 
